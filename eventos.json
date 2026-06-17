@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nombre": "Semana de la Ingeniería",
+    "tipo": "Interno",
+    "fecha": "2026-06-12",
+    "hora": "08:00",
+    "lugar": "Auditorio Mayor",
+    "desc": "Conferencias, talleres y exposiciones de proyectos estudiantiles de las facultades de ingeniería. Evento abierto a toda la comunidad universitaria.",
+    "link": "https://forms.gle/ejemplo1"
+  },
+  {
+    "id": 2,
+    "nombre": "Foro Internacional de Sostenibilidad",
+    "tipo": "Externo",
+    "fecha": "2026-06-18",
+    "hora": "09:00",
+    "lugar": "Auditorio Central",
+    "desc": "Espacio de reflexión sobre desarrollo sostenible con ponentes nacionales e internacionales. Requiere inscripción previa.",
+    "link": "https://forms.gle/ejemplo2"
+  },
+  {
+    "id": 3,
+    "nombre": "Concierto Coral Universitario",
+    "tipo": "Interno",
+    "fecha": "2026-06-20",
+    "hora": "18:00",
+    "lugar": "Salón Cultural",
+    "desc": "Presentación del coro universitario con repertorio clásico y contemporáneo. Entrada libre, sin inscripción requerida.",
+    "link": ""
+  },
+  {
+    "id": 4,
+    "nombre": "Feria de Emprendimiento",
+    "tipo": "Externo",
+    "fecha": "2026-06-25",
+    "hora": "10:00",
+    "lugar": "Plaza Central",
+    "desc": "Muestra de emprendimientos estudiantiles abierta al público general. Networking con inversores y aliados estratégicos.",
+    "link": "https://forms.gle/ejemplo3"
+  }
+]

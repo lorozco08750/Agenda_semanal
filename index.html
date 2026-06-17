@@ -86,6 +86,7 @@
     padding: 4px;
     border-radius: 10px;
   }
+  .nav-tabs[hidden] { display: none; }
   .tab {
     padding: 6px 16px;
     border-radius: 7px;
@@ -393,6 +394,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
   }
   .btn-nuevo {
     display: flex;
@@ -440,6 +442,17 @@
     font-size: 13px;
   }
   .login-error.visible { display: block; }
+  .publish-status {
+    width: 100%;
+    display: none;
+    padding: 9px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+  }
+  .publish-status.pending { display: block; background: var(--external-bg); color: var(--external); }
+  .publish-status.ok { display: block; background: var(--accent-light); color: var(--accent-text); }
+  .publish-status.err { display: block; background: var(--danger-bg); color: var(--danger); }
+  .btn-publish[disabled] { cursor: wait; opacity: 0.65; }
 
   .admin-table-wrap {
     background: var(--surface);
@@ -610,6 +623,8 @@
     .form-grid { grid-template-columns: 1fr; }
     .events-grid { grid-template-columns: 1fr; }
     .logo-sub { display: none; }
+    .admin-actions { width: 100%; }
+    .admin-actions .btn-publish { flex: 1 0 100%; justify-content: center; }
     .admin-table-wrap { background: transparent; border: 0; box-shadow: none; overflow: visible; }
     .admin-table-wrap table,
     .admin-table-wrap tbody { display: block; }
@@ -649,7 +664,7 @@
         <div class="logo-sub">Eventos universitarios</div>
       </div>
     </div>
-    <div class="nav-tabs">
+    <div class="nav-tabs" id="admin-nav" hidden>
       <button class="tab active" id="tab-publico" onclick="showSection('publico')">Eventos</button>
       <button class="tab" id="tab-admin" onclick="showSection('admin')">Administrar</button>
     </div>
@@ -690,18 +705,23 @@
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 17l5-5-5-5M15 12H3M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/></svg>
           Cerrar sesión
         </button>
-        <button class="btn-nuevo" onclick="openForm()">
+        <button class="btn-logout" onclick="openForm()">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
           Nuevo evento
         </button>
+        <button class="btn-nuevo btn-publish" id="btn-publish" onclick="publicarAgenda()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 21h14a2 2 0 002-2v-4M3 15v4a2 2 0 002 2"/></svg>
+          Publicar agenda
+        </button>
       </div>
+      <div class="publish-status" id="publish-status" role="status"></div>
     </div>
     <!-- IMPORTAR DESDE ICS -->
     <div class="ics-zone" id="ics-zone">
       <div class="ics-icon">📥</div>
       <div class="ics-text">
         <strong>Importar desde Outlook (calendario ICS)</strong>
-        <span>Descarga el .ics de tu calendario de Outlook y súbelo aquí. Los eventos nuevos se agregarán sin borrar los existentes.</span>
+        <span>El archivo reemplazará la agenda actual. Podrás revisar los eventos antes de publicarlos.</span>
       </div>
       <button class="btn-ics" onclick="document.getElementById('ics-file-input').click()">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
@@ -765,12 +785,12 @@
       <h2 id="login-title">Acceso administrativo</h2>
       <button class="btn-close" type="button" onclick="closeLogin()" aria-label="Cerrar">×</button>
     </div>
-    <p class="login-copy">Ingresa la contraseña de administración para continuar.</p>
+    <p class="login-copy">Ingresa tu clave privada de publicación para administrar esta agenda.</p>
     <div class="form-field">
-      <label for="admin-password">Contraseña</label>
-      <input type="password" id="admin-password" autocomplete="current-password" required>
+      <label for="admin-token">Clave de publicación</label>
+      <input type="password" id="admin-token" autocomplete="off" spellcheck="false" required>
     </div>
-    <div class="login-error" id="login-error" role="alert">La contraseña no es correcta.</div>
+    <div class="login-error" id="login-error" role="alert"></div>
     <div class="form-actions">
       <button class="btn-cancel-form" type="button" onclick="closeLogin()">Cancelar</button>
       <button class="btn-save" type="submit">Ingresar</button>
@@ -830,36 +850,36 @@
 </footer>
 
 <script>
-const KEY = 'agenda_univ_v2';
-const ADMIN_SESSION_KEY = 'agenda_admin_session';
-const ADMIN_PASSWORD_SALT = 'agenda-admin-v1:6f2c91a8';
-const ADMIN_PASSWORD_HASH = 'c1e34f2c6c1c45701bb85d8c750ec44d41ae9e0f36565853dba472d721fb74f3';
+const DATA_URL = 'eventos.json';
+const REPO_OWNER = 'lorozco08750';
+const REPO_NAME = 'Agenda_semanal';
+const REPO_BRANCH = 'main';
+const DATA_PATH = 'eventos.json';
+const ADMIN_MODE = new URLSearchParams(window.location.search).get('admin') === '1';
 let eventos = [];
 let editIdx = null;
 let filtroActivo = 'todos';
-let adminAuthenticated = sessionStorage.getItem(ADMIN_SESSION_KEY) === '1';
+let adminAuthenticated = false;
+let adminToken = '';
+let loadError = false;
 
 // ---------- DATOS ----------
-function cargar() {
+async function cargar() {
   try {
-    const raw = localStorage.getItem(KEY);
-    if (raw) eventos = JSON.parse(raw);
-    else seedData();
-  } catch(e) { seedData(); }
+    const response = await fetch(`${DATA_URL}?v=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error('No se pudo cargar la agenda.');
+    const data = await response.json();
+    if (!Array.isArray(data)) throw new Error('El archivo de agenda no es válido.');
+    eventos = data;
+    loadError = false;
+  } catch (error) {
+    eventos = [];
+    loadError = true;
+  }
 }
 
 function guardar() {
-  localStorage.setItem(KEY, JSON.stringify(eventos));
-}
-
-function seedData() {
-  eventos = [
-    { id: 1, nombre: 'Semana de la Ingeniería', tipo: 'Interno', fecha: '2026-06-12', hora: '08:00', lugar: 'Auditorio Mayor', desc: 'Conferencias, talleres y exposiciones de proyectos estudiantiles de las facultades de ingeniería. Evento abierto a toda la comunidad universitaria.', link: 'https://forms.gle/ejemplo1' },
-    { id: 2, nombre: 'Foro Internacional de Sostenibilidad', tipo: 'Externo', fecha: '2026-06-18', hora: '09:00', lugar: 'Auditorio Central', desc: 'Espacio de reflexión sobre desarrollo sostenible con ponentes nacionales e internacionales. Requiere inscripción previa.', link: 'https://forms.gle/ejemplo2' },
-    { id: 3, nombre: 'Concierto Coral Universitario', tipo: 'Interno', fecha: '2026-06-20', hora: '18:00', lugar: 'Salón Cultural', desc: 'Presentación del coro universitario con repertorio clásico y contemporáneo. Entrada libre, sin inscripción requerida.', link: '' },
-    { id: 4, nombre: 'Feria de Emprendimiento', tipo: 'Externo', fecha: '2026-06-25', hora: '10:00', lugar: 'Plaza Central', desc: 'Muestra de emprendimientos estudiantiles abierta al público general. Networking con inversores y aliados estratégicos.', link: 'https://forms.gle/ejemplo3' },
-  ];
-  guardar();
+  showPublishStatus('Hay cambios pendientes. Pulsa “Publicar agenda” para mostrarlos a todos.', 'pending');
 }
 
 // ---------- UTILS ----------
@@ -879,6 +899,21 @@ function fmtHora(h) {
   return `${hr12}:${mm} ${sufijo}`;
 }
 
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>'"]/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+  })[char]);
+}
+
+function safeLink(value) {
+  try {
+    const url = new URL(value);
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+  } catch (error) {
+    return '';
+  }
+}
+
 // ---------- NAVEGACIÓN ----------
 function showSection(s) {
   if (s === 'admin' && !adminAuthenticated) {
@@ -894,36 +929,61 @@ function showSection(s) {
 }
 
 function openLogin() {
-  const password = document.getElementById('admin-password');
-  password.value = '';
+  const token = document.getElementById('admin-token');
+  token.value = '';
+  document.getElementById('login-error').textContent = '';
   document.getElementById('login-error').classList.remove('visible');
   document.getElementById('modal-login').classList.add('open');
-  setTimeout(() => password.focus(), 50);
+  setTimeout(() => token.focus(), 50);
 }
 
 function closeLogin() {
   document.getElementById('modal-login').classList.remove('open');
-  document.getElementById('admin-password').value = '';
+  document.getElementById('admin-token').value = '';
   document.getElementById('login-error').classList.remove('visible');
 }
 
 async function loginAdmin(event) {
   event.preventDefault();
-  const password = document.getElementById('admin-password').value;
-  const data = new TextEncoder().encode(`${ADMIN_PASSWORD_SALT}:${password}`);
-  const digest = await crypto.subtle.digest('SHA-256', data);
-  const hash = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
+  const tokenInput = document.getElementById('admin-token');
+  const token = tokenInput.value.trim();
+  const submit = document.querySelector('#admin-login-form .btn-save');
+  const errorBox = document.getElementById('login-error');
+  submit.disabled = true;
+  submit.textContent = 'Verificando...';
+  errorBox.classList.remove('visible');
 
-  if (hash !== ADMIN_PASSWORD_HASH) {
-    document.getElementById('login-error').classList.add('visible');
-    document.getElementById('admin-password').select();
-    return;
+  try {
+    const response = await fetch('https://api.github.com/user', {
+      headers: githubHeaders(token)
+    });
+    if (!response.ok) throw new Error('La clave no es válida o ha vencido.');
+    const user = await response.json();
+    if ((user.login || '').toLowerCase() !== REPO_OWNER.toLowerCase()) {
+      throw new Error('Esta clave no pertenece al administrador autorizado.');
+    }
+
+    const repoResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`, {
+      headers: githubHeaders(token)
+    });
+    if (!repoResponse.ok) throw new Error('La clave no tiene acceso a esta agenda.');
+    const repo = await repoResponse.json();
+    if (!repo.permissions || !repo.permissions.push) {
+      throw new Error('La clave necesita permiso de lectura y escritura en Contenido.');
+    }
+
+    adminToken = token;
+    adminAuthenticated = true;
+    closeLogin();
+    showSection('admin');
+  } catch (error) {
+    errorBox.textContent = error.message || 'No fue posible verificar la clave.';
+    errorBox.classList.add('visible');
+    tokenInput.select();
+  } finally {
+    submit.disabled = false;
+    submit.textContent = 'Ingresar';
   }
-
-  adminAuthenticated = true;
-  sessionStorage.setItem(ADMIN_SESSION_KEY, '1');
-  closeLogin();
-  showSection('admin');
 }
 
 function requireAdmin() {
@@ -935,9 +995,70 @@ function requireAdmin() {
 
 function logoutAdmin() {
   adminAuthenticated = false;
-  sessionStorage.removeItem(ADMIN_SESSION_KEY);
+  adminToken = '';
   closeForm();
   showSection('publico');
+}
+
+function githubHeaders(token = adminToken) {
+  return {
+    Accept: 'application/vnd.github+json',
+    Authorization: `Bearer ${token}`,
+    'X-GitHub-Api-Version': '2022-11-28'
+  };
+}
+
+function showPublishStatus(message, type) {
+  const status = document.getElementById('publish-status');
+  status.textContent = message;
+  status.className = `publish-status ${type}`;
+}
+
+function encodeBase64Utf8(value) {
+  const bytes = new TextEncoder().encode(value);
+  let binary = '';
+  bytes.forEach(byte => { binary += String.fromCharCode(byte); });
+  return btoa(binary);
+}
+
+async function publicarAgenda() {
+  if (!requireAdmin()) return;
+  const button = document.getElementById('btn-publish');
+  button.disabled = true;
+  showPublishStatus('Publicando la agenda...', 'pending');
+
+  try {
+    const endpoint = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${DATA_PATH}`;
+    const currentResponse = await fetch(`${endpoint}?ref=${REPO_BRANCH}`, {
+      headers: githubHeaders()
+    });
+    if (!currentResponse.ok) throw new Error('No fue posible consultar la agenda actual.');
+    const current = await currentResponse.json();
+    const content = `${JSON.stringify(eventos, null, 2)}\n`;
+    const updateResponse = await fetch(endpoint, {
+      method: 'PUT',
+      headers: {
+        ...githubHeaders(),
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: 'Actualizar agenda semanal',
+        content: encodeBase64Utf8(content),
+        sha: current.sha,
+        branch: REPO_BRANCH
+      })
+    });
+    if (!updateResponse.ok) {
+      const detail = await updateResponse.json().catch(() => ({}));
+      throw new Error(detail.message || 'No fue posible publicar la agenda.');
+    }
+
+    showPublishStatus('Agenda publicada. Los cambios estarán visibles para todos en aproximadamente un minuto.', 'ok');
+  } catch (error) {
+    showPublishStatus(error.message || 'No fue posible publicar la agenda.', 'err');
+  } finally {
+    button.disabled = false;
+  }
 }
 
 // ---------- VISTA PÚBLICA ----------
@@ -952,6 +1073,11 @@ function renderPublico() {
   const q = document.getElementById('search-input').value.toLowerCase().trim();
   const grid = document.getElementById('events-grid');
 
+  if (loadError) {
+    grid.innerHTML = `<div class="empty"><p>No fue posible cargar la agenda. Intenta actualizar la página.</p></div>`;
+    return;
+  }
+
   let lista = eventos.filter(e => {
     const matchTipo = filtroActivo === 'todos' || e.tipo === filtroActivo;
     const matchQ = !q || e.nombre.toLowerCase().includes(q) || (e.lugar||'').toLowerCase().includes(q) || (e.desc||'').toLowerCase().includes(q);
@@ -963,11 +1089,17 @@ function renderPublico() {
     return;
   }
 
-  grid.innerHTML = lista.map(e => `
+  grid.innerHTML = lista.map(e => {
+    const nombre = escapeHtml(e.nombre);
+    const tipo = e.tipo === 'Externo' ? 'Externo' : 'Interno';
+    const lugar = escapeHtml(e.lugar);
+    const desc = escapeHtml(e.desc);
+    const link = safeLink(e.link);
+    return `
     <div class="event-card">
       <div class="card-top">
-        <span class="card-title">${e.nombre}</span>
-        <span class="badge badge-${e.tipo.toLowerCase()}">${e.tipo}</span>
+        <span class="card-title">${nombre}</span>
+        <span class="badge badge-${tipo.toLowerCase()}">${tipo}</span>
       </div>
       <div class="card-meta">
         <div class="meta-row">
@@ -980,19 +1112,20 @@ function renderPublico() {
         </div>
         <div class="meta-row">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          ${e.lugar}
+          ${lugar}
         </div>
       </div>
-      ${e.desc ? `<div class="card-desc">${e.desc}</div>` : ''}
+      ${desc ? `<div class="card-desc">${desc}</div>` : ''}
       <div class="card-footer">
         <button class="btn-detail" onclick="openDetalle(${e.id})">Ver detalles</button>
-        ${e.link
-          ? `<a href="${e.link}" target="_blank" class="btn-asistir"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agendar asistencia</a>`
+        ${link
+          ? `<a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" class="btn-asistir"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agendar asistencia</a>`
           : `<span class="no-link-note">Sin inscripción requerida</span>`
         }
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 // ---------- DETALLE ----------
@@ -1008,7 +1141,8 @@ function openDetalle(id) {
   document.getElementById('d-lugar').textContent = e.lugar;
   document.getElementById('d-desc').textContent = e.desc || 'Sin descripción disponible.';
   const lnk = document.getElementById('d-link');
-  if (e.link) { lnk.href = e.link; lnk.style.display = 'flex'; }
+  const link = safeLink(e.link);
+  if (link) { lnk.href = link; lnk.style.display = 'flex'; }
   else { lnk.style.display = 'none'; }
   document.getElementById('modal-detalle').classList.add('open');
 }
@@ -1032,12 +1166,13 @@ function renderAdmin() {
   const sorted = [...eventos].sort((a, b) => a.fecha.localeCompare(b.fecha));
   tbody.innerHTML = sorted.map((e, i) => {
     const realIdx = eventos.indexOf(e);
+    const tipo = e.tipo === 'Externo' ? 'Externo' : 'Interno';
     return `
       <tr>
-        <td><strong style="font-weight:500">${e.nombre}</strong></td>
-        <td><span class="badge badge-${e.tipo.toLowerCase()}">${e.tipo}</span></td>
+        <td><strong style="font-weight:500">${escapeHtml(e.nombre)}</strong></td>
+        <td><span class="badge badge-${tipo.toLowerCase()}">${tipo}</span></td>
         <td>${fmtFecha(e.fecha)}</td>
-        <td>${e.lugar}</td>
+        <td>${escapeHtml(e.lugar)}</td>
         <td><div class="td-actions">
           <button class="btn-edit" onclick="openForm(${realIdx})">Editar</button>
           <button class="btn-del" onclick="eliminar(${realIdx})">Eliminar</button>
@@ -1140,19 +1275,11 @@ function procesarICS(texto) {
       resultado.className = 'ics-result err';
       return;
     }
-    let nuevos = 0, duplicados = 0;
-    eventos_ics.forEach(ev => {
-      const existe = eventos.find(e => e.nombre === ev.nombre && e.fecha === ev.fecha);
-      if (!existe) { eventos.push(ev); nuevos++; }
-      else { duplicados++; }
-    });
+    eventos = eventos_ics;
     guardar();
     renderAdmin();
-    let msg = `✅ Importación completada: ${nuevos} evento${nuevos !== 1 ? 's' : ''} nuevo${nuevos !== 1 ? 's' : ''}`;
-    if (duplicados) msg += `, ${duplicados} ya existía${duplicados !== 1 ? 'n' : ''} (omitido${duplicados !== 1 ? 's' : ''})`;
-    resultado.textContent = msg;
+    resultado.textContent = `${eventos.length} evento${eventos.length !== 1 ? 's' : ''} cargado${eventos.length !== 1 ? 's' : ''}. Revisa la lista y pulsa “Publicar agenda”.`;
     resultado.className = 'ics-result ok';
-    setTimeout(() => { resultado.className = 'ics-result'; }, 6000);
   } catch(err) {
     resultado.textContent = '❌ Error al leer el archivo. Asegúrate de que sea un .ics válido.';
     resultado.className = 'ics-result err';
@@ -1182,9 +1309,9 @@ function parsearICS(texto) {
     }
     // DTSTART → fecha y hora
     else if (linea.startsWith('DTSTART')) {
-      const val = linea.replace(/^DTSTART[^:]*:/, '').trim();
-      actual.fecha = parsearFechaICS(val);
-      actual.hora = parsearHoraICS(val);
+      const fechaHora = parsearFechaHoraICS(linea.replace(/^DTSTART[^:]*:/, '').trim());
+      actual.fecha = fechaHora.fecha;
+      actual.hora = fechaHora.hora;
     }
     // LOCATION → lugar
     else if (linea.startsWith('LOCATION')) {
@@ -1213,23 +1340,44 @@ function parsearICS(texto) {
   }));
 }
 
-function parsearFechaICS(val) {
-  // Formatos: 20260615T090000Z  o  20260615
-  const m = val.replace(/[TZ]/g, '').substring(0, 8);
-  if (m.length < 8) return '';
-  return `${m.substring(0,4)}-${m.substring(4,6)}-${m.substring(6,8)}`;
-}
+function parsearFechaHoraICS(val) {
+  const fechaBase = val.substring(0, 8);
+  if (fechaBase.length < 8) return { fecha: '', hora: '' };
 
-function parsearHoraICS(val) {
-  if (!val.includes('T')) return '08:00';
-  const t = val.split('T')[1].replace('Z','');
-  if (t.length < 4) return '08:00';
-  // Convertir de UTC a UTC-5 (Colombia)
-  let hh = parseInt(t.substring(0,2));
-  const mm = t.substring(2,4);
-  hh = hh - 5;
-  if (hh < 0) hh += 24;
-  return `${String(hh).padStart(2,'0')}:${mm}`;
+  if (!val.includes('T')) {
+    return {
+      fecha: `${fechaBase.substring(0,4)}-${fechaBase.substring(4,6)}-${fechaBase.substring(6,8)}`,
+      hora: '08:00'
+    };
+  }
+
+  const horaBase = val.split('T')[1].replace('Z', '');
+  if (!val.endsWith('Z')) {
+    return {
+      fecha: `${fechaBase.substring(0,4)}-${fechaBase.substring(4,6)}-${fechaBase.substring(6,8)}`,
+      hora: `${horaBase.substring(0,2)}:${horaBase.substring(2,4)}`
+    };
+  }
+
+  const utc = new Date(Date.UTC(
+    Number(fechaBase.substring(0, 4)),
+    Number(fechaBase.substring(4, 6)) - 1,
+    Number(fechaBase.substring(6, 8)),
+    Number(horaBase.substring(0, 2)),
+    Number(horaBase.substring(2, 4))
+  ));
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Bogota',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+  }).formatToParts(utc).reduce((acc, part) => {
+    acc[part.type] = part.value;
+    return acc;
+  }, {});
+  return {
+    fecha: `${parts.year}-${parts.month}-${parts.day}`,
+    hora: `${parts.hour}:${parts.minute}`
+  };
 }
 
 // Drag & drop sobre la zona ICS
@@ -1249,8 +1397,14 @@ icsZone.addEventListener('drop', e => {
 });
 
 // ---------- INIT ----------
-cargar();
-renderPublico();
+async function init() {
+  document.getElementById('admin-nav').hidden = !ADMIN_MODE;
+  await cargar();
+  renderPublico();
+  if (ADMIN_MODE) openLogin();
+}
+
+init();
 </script>
 </body>
 </html>
