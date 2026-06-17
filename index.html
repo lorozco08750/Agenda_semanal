@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda de Eventos — Universidad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F0;
+    --surface: #FFFFFF;
+    --border: #E2DDD6;
+    --text-primary: #1A1814;
+    --text-secondary: #6B6660;
+    --text-muted: #A09B95;
+    --accent: #1A3A2A;
+    --accent-light: #E8F0EB;
+    --accent-text: #1A3A2A;
+    --external: #2D1A00;
+    --external-bg: #FFF3E0;
+    --danger: #8B2020;
+    --danger-bg: #FDF0F0;
+    --info: #0D3352;
+    --info-bg: #EBF3FA;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--accent);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 1rem;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-icon {
+    width: 32px; height: 32px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .logo-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+  .logo-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+    background: rgba(255,255,255,0.08);
+    padding: 4px;
+    border-radius: 10px;
+  }
+  .tab {
+    padding: 6px 16px;
+    border-radius: 7px;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    transition: all 0.2s;
+  }
+  .tab.active {
+    background: #fff;
+    color: var(--accent);
+  }
+
+  /* MAIN */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* PAGE HEADER */
+  .page-header {
+    margin-bottom: 1.5rem;
+  }
+  .page-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  .page-header p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  /* FILTERS */
+  .filters-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .search-wrap {
+    flex: 1;
+    min-width: 220px;
+    position: relative;
+  }
+  .search-wrap svg {
+    position: absolute;
+    left: 12px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+  }
+  .search-input {
+    width: 100%;
+    padding: 9px 12px 9px 36px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-input:focus { border-color: var(--accent); }
+  .search-input::placeholder { color: var(--text-muted); }
+
+  .filter-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pill {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: var(--surface);
+    color: var(--text-secondary);
+    transition: all 0.2s;
+  }
+  .pill.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* EVENTS GRID */
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .event-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: default;
+  }
+  .event-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+
+  .badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .badge-interno { background: var(--accent-light); color: var(--accent-text); }
+  .badge-externo { background: var(--external-bg); color: var(--external); }
+
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.35;
+  }
+
+  .card-meta { display: flex; flex-direction: column; gap: 6px; }
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .meta-row svg { flex-shrink: 0; color: var(--text-muted); }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-footer { display: flex; gap: 8px; margin-top: auto; padding-top: 4px; }
+  .btn-detail {
+    flex: 1;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: transparent;
+    color: var(--text-secondary);
+    transition: all 0.15s;
+  }
+  .btn-detail:hover { background: var(--bg); border-color: var(--text-muted); }
+
+  .btn-asistir {
+    flex: 1;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--accent);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    transition: opacity 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .btn-asistir:hover { opacity: 0.85; }
+
+  .no-link-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    align-self: center;
+    padding-left: 4px;
+  }
+
+  /* EMPTY STATE */
+  .empty {
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+  }
+  .empty-icon { font-size: 40px; margin-bottom: 12px; }
+  .empty p { font-size: 15px; }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,8,6,0.5);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(2px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .modal-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .modal-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+  .btn-close {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--text-muted);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .btn-close:hover { background: var(--bg); color: var(--text-primary); }
+
+  .modal-meta { display: flex; flex-direction: column; gap: 8px; }
+  .modal-meta .meta-row { font-size: 14px; }
+  .modal-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding: 14px;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+  }
+  .modal-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .modal-link:hover { opacity: 0.85; }
+
+  /* ADMIN */
+  .admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-nuevo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .btn-nuevo:hover { opacity: 0.85; }
+
+  .admin-table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--bg); }
+  tbody td { padding: 12px 16px; color: var(--text-primary); vertical-align: middle; }
+  .td-actions { display: flex; gap: 6px; }
+  .btn-edit {
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-edit:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-del {
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-del:hover { border-color: var(--danger); color: var(--danger); background: var(--danger-bg); }
+
+  /* FORM */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-full { grid-column: 1/-1; }
+  .form-field { display: flex; flex-direction: column; gap: 5px; }
+  .form-field label { font-size: 12px; font-weight: 500; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.4px; }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    background: var(--surface);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus { border-color: var(--accent); }
+  .form-field textarea { resize: vertical; min-height: 80px; }
+  .form-actions { display: flex; gap: 8px; justify-content: flex-end; padding-top: 4px; }
+  .btn-cancel-form {
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+  .btn-save {
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .btn-save:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  /* ICS IMPORT */
+  .ics-zone {
+    border: 1.5px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .ics-zone.drag-over {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+  .ics-icon {
+    width: 40px; height: 40px;
+    background: var(--accent-light);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .ics-text { flex: 1; min-width: 160px; }
+  .ics-text strong { display: block; font-size: 14px; font-weight: 500; color: var(--text-primary); }
+  .ics-text span { font-size: 12px; color: var(--text-muted); }
+  .btn-ics {
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .btn-ics:hover { background: var(--accent); color: #fff; }
+  .ics-result {
+    width: 100%;
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    display: none;
+  }
+  .ics-result.ok { background: var(--accent-light); color: var(--accent-text); display: block; }
+  .ics-result.err { background: var(--danger-bg); color: var(--danger); display: block; }
+
+  @media (max-width: 600px) {
+    main { padding: 1rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    .events-grid { grid-template-columns: 1fr; }
+    .logo-sub { display: none; }
+    thead th:nth-child(3), tbody td:nth-child(3),
+    thead th:nth-child(4), tbody td:nth-child(4) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">📅</div>
+      <div>
+        <div class="logo-text">Agenda</div>
+        <div class="logo-sub">Eventos universitarios</div>
+      </div>
+    </div>
+    <div class="nav-tabs">
+      <button class="tab active" onclick="showSection('publico')">Eventos</button>
+      <button class="tab" onclick="showSection('admin')">Administrar</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- SECCIÓN PÚBLICA -->
+  <div id="sec-publico" class="section active">
+    <div class="page-header">
+      <h1>Próximos eventos</h1>
+      <p>Consulta la agenda de actividades académicas, culturales y de extensión.</p>
+    </div>
+    <div class="filters-bar">
+      <div class="search-wrap">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input class="search-input" type="text" id="search-input" placeholder="Buscar por nombre, lugar o descripción..." oninput="renderPublico()">
+      </div>
+      <div class="filter-pills">
+        <button class="pill active" data-filter="todos" onclick="setFilter(this)">Todos</button>
+        <button class="pill" data-filter="Interno" onclick="setFilter(this)">Internos</button>
+        <button class="pill" data-filter="Externo" onclick="setFilter(this)">Externos</button>
+      </div>
+    </div>
+    <div class="events-grid" id="events-grid"></div>
+  </div>
+
+  <!-- SECCIÓN ADMIN -->
+  <div id="sec-admin" class="section">
+    <div class="page-header">
+      <h1>Panel de administración</h1>
+      <p>Crea, edita y elimina eventos de la agenda.</p>
+    </div>
+    <div class="admin-toolbar">
+      <span id="admin-count" style="font-size:13px;color:var(--text-secondary)"></span>
+      <button class="btn-nuevo" onclick="openForm()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        Nuevo evento
+      </button>
+    </div>
+    <!-- IMPORTAR DESDE ICS -->
+    <div class="ics-zone" id="ics-zone">
+      <div class="ics-icon">📥</div>
+      <div class="ics-text">
+        <strong>Importar desde Outlook (calendario ICS)</strong>
+        <span>Descarga el .ics de tu calendario de Outlook y súbelo aquí. Los eventos nuevos se agregarán sin borrar los existentes.</span>
+      </div>
+      <button class="btn-ics" onclick="document.getElementById('ics-file-input').click()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Seleccionar archivo .ics
+      </button>
+      <input type="file" id="ics-file-input" accept=".ics" style="display:none" onchange="importarICS(this)">
+      <div class="ics-result" id="ics-result"></div>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre del evento</th>
+            <th>Tipo</th>
+            <th>Fecha</th>
+            <th>Auditorio / lugar</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="admin-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<!-- MODAL DETALLE -->
+<div class="modal-overlay" id="modal-detalle">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="d-nombre"></h2>
+      <button class="btn-close" onclick="closeDetalle()">×</button>
+    </div>
+    <span id="d-badge" class="badge"></span>
+    <div class="modal-meta">
+      <div class="meta-row">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span id="d-fecha"></span>
+      </div>
+      <div class="meta-row">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span id="d-hora"></span>
+      </div>
+      <div class="meta-row">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span id="d-lugar"></span>
+      </div>
+    </div>
+    <div class="modal-desc" id="d-desc"></div>
+    <a class="modal-link" id="d-link" href="#" target="_blank" style="display:none">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Inscribirse / ver link de asistencia
+    </a>
+  </div>
+</div>
+
+<!-- MODAL FORMULARIO -->
+<div class="modal-overlay" id="modal-form">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="form-title">Nuevo evento</h2>
+      <button class="btn-close" onclick="closeForm()">×</button>
+    </div>
+    <div class="form-grid">
+      <div class="form-field form-full">
+        <label>Nombre del evento</label>
+        <input type="text" id="f-nombre" placeholder="Ej: Congreso de Innovación 2026">
+      </div>
+      <div class="form-field">
+        <label>Tipo</label>
+        <select id="f-tipo">
+          <option value="Interno">Interno</option>
+          <option value="Externo">Externo</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Auditorio / lugar</label>
+        <input type="text" id="f-lugar" placeholder="Ej: Auditorio Mayor">
+      </div>
+      <div class="form-field">
+        <label>Fecha</label>
+        <input type="date" id="f-fecha">
+      </div>
+      <div class="form-field">
+        <label>Hora</label>
+        <input type="time" id="f-hora">
+      </div>
+      <div class="form-field form-full">
+        <label>Descripción</label>
+        <textarea id="f-desc" placeholder="¿De qué trata el evento? Incluye información relevante para los asistentes."></textarea>
+      </div>
+      <div class="form-field form-full">
+        <label>Link de asistencia / inscripción (opcional)</label>
+        <input type="url" id="f-link" placeholder="https://forms.gle/... o el enlace de registro">
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-cancel-form" onclick="closeForm()">Cancelar</button>
+      <button class="btn-save" onclick="saveEvento()">Guardar evento</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Agenda de eventos universitarios &nbsp;·&nbsp; Todos los derechos reservados
+</footer>
+
+<script>
+const KEY = 'agenda_univ_v2';
+let eventos = [];
+let editIdx = null;
+let filtroActivo = 'todos';
+
+// ---------- DATOS ----------
+function cargar() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) eventos = JSON.parse(raw);
+    else seedData();
+  } catch(e) { seedData(); }
+}
+
+function guardar() {
+  localStorage.setItem(KEY, JSON.stringify(eventos));
+}
+
+function seedData() {
+  eventos = [
+    { id: 1, nombre: 'Semana de la Ingeniería', tipo: 'Interno', fecha: '2026-06-12', hora: '08:00', lugar: 'Auditorio Mayor', desc: 'Conferencias, talleres y exposiciones de proyectos estudiantiles de las facultades de ingeniería. Evento abierto a toda la comunidad universitaria.', link: 'https://forms.gle/ejemplo1' },
+    { id: 2, nombre: 'Foro Internacional de Sostenibilidad', tipo: 'Externo', fecha: '2026-06-18', hora: '09:00', lugar: 'Auditorio Central', desc: 'Espacio de reflexión sobre desarrollo sostenible con ponentes nacionales e internacionales. Requiere inscripción previa.', link: 'https://forms.gle/ejemplo2' },
+    { id: 3, nombre: 'Concierto Coral Universitario', tipo: 'Interno', fecha: '2026-06-20', hora: '18:00', lugar: 'Salón Cultural', desc: 'Presentación del coro universitario con repertorio clásico y contemporáneo. Entrada libre, sin inscripción requerida.', link: '' },
+    { id: 4, nombre: 'Feria de Emprendimiento', tipo: 'Externo', fecha: '2026-06-25', hora: '10:00', lugar: 'Plaza Central', desc: 'Muestra de emprendimientos estudiantiles abierta al público general. Networking con inversores y aliados estratégicos.', link: 'https://forms.gle/ejemplo3' },
+  ];
+  guardar();
+}
+
+// ---------- UTILS ----------
+function fmtFecha(f) {
+  if (!f) return '';
+  const [y, m, d] = f.split('-');
+  const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  return `${parseInt(d)} de ${meses[parseInt(m)-1]} de ${y}`;
+}
+
+function fmtHora(h) {
+  if (!h) return '';
+  const [hh, mm] = h.split(':');
+  const hr = parseInt(hh);
+  const sufijo = hr >= 12 ? 'p.m.' : 'a.m.';
+  const hr12 = hr > 12 ? hr - 12 : (hr === 0 ? 12 : hr);
+  return `${hr12}:${mm} ${sufijo}`;
+}
+
+// ---------- NAVEGACIÓN ----------
+function showSection(s) {
+  document.querySelectorAll('.section').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+  document.getElementById('sec-' + s).classList.add('active');
+  document.querySelectorAll('.tab')[s === 'publico' ? 0 : 1].classList.add('active');
+  if (s === 'admin') renderAdmin();
+  else renderPublico();
+}
+
+// ---------- VISTA PÚBLICA ----------
+function setFilter(btn) {
+  document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filtroActivo = btn.dataset.filter;
+  renderPublico();
+}
+
+function renderPublico() {
+  const q = document.getElementById('search-input').value.toLowerCase().trim();
+  const grid = document.getElementById('events-grid');
+
+  let lista = eventos.filter(e => {
+    const matchTipo = filtroActivo === 'todos' || e.tipo === filtroActivo;
+    const matchQ = !q || e.nombre.toLowerCase().includes(q) || (e.lugar||'').toLowerCase().includes(q) || (e.desc||'').toLowerCase().includes(q);
+    return matchTipo && matchQ;
+  }).sort((a, b) => a.fecha.localeCompare(b.fecha));
+
+  if (!lista.length) {
+    grid.innerHTML = `<div class="empty"><div class="empty-icon">📭</div><p>No hay eventos que coincidan con tu búsqueda.</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = lista.map(e => `
+    <div class="event-card">
+      <div class="card-top">
+        <span class="card-title">${e.nombre}</span>
+        <span class="badge badge-${e.tipo.toLowerCase()}">${e.tipo}</span>
+      </div>
+      <div class="card-meta">
+        <div class="meta-row">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          ${fmtFecha(e.fecha)}
+        </div>
+        <div class="meta-row">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          ${fmtHora(e.hora)}
+        </div>
+        <div class="meta-row">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          ${e.lugar}
+        </div>
+      </div>
+      ${e.desc ? `<div class="card-desc">${e.desc}</div>` : ''}
+      <div class="card-footer">
+        <button class="btn-detail" onclick="openDetalle(${e.id})">Ver detalles</button>
+        ${e.link
+          ? `<a href="${e.link}" target="_blank" class="btn-asistir"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agendar asistencia</a>`
+          : `<span class="no-link-note">Sin inscripción requerida</span>`
+        }
+      </div>
+    </div>
+  `).join('');
+}
+
+// ---------- DETALLE ----------
+function openDetalle(id) {
+  const e = eventos.find(x => x.id === id);
+  if (!e) return;
+  document.getElementById('d-nombre').textContent = e.nombre;
+  const badge = document.getElementById('d-badge');
+  badge.textContent = e.tipo;
+  badge.className = `badge badge-${e.tipo.toLowerCase()}`;
+  document.getElementById('d-fecha').textContent = fmtFecha(e.fecha);
+  document.getElementById('d-hora').textContent = fmtHora(e.hora);
+  document.getElementById('d-lugar').textContent = e.lugar;
+  document.getElementById('d-desc').textContent = e.desc || 'Sin descripción disponible.';
+  const lnk = document.getElementById('d-link');
+  if (e.link) { lnk.href = e.link; lnk.style.display = 'flex'; }
+  else { lnk.style.display = 'none'; }
+  document.getElementById('modal-detalle').classList.add('open');
+}
+
+function closeDetalle() {
+  document.getElementById('modal-detalle').classList.remove('open');
+}
+
+// ---------- ADMIN ----------
+function renderAdmin() {
+  const tbody = document.getElementById('admin-tbody');
+  const count = document.getElementById('admin-count');
+  count.textContent = `${eventos.length} evento${eventos.length !== 1 ? 's' : ''} registrado${eventos.length !== 1 ? 's' : ''}`;
+
+  if (!eventos.length) {
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--text-muted)">No hay eventos registrados aún.</td></tr>`;
+    return;
+  }
+
+  const sorted = [...eventos].sort((a, b) => a.fecha.localeCompare(b.fecha));
+  tbody.innerHTML = sorted.map((e, i) => {
+    const realIdx = eventos.indexOf(e);
+    return `
+      <tr>
+        <td><strong style="font-weight:500">${e.nombre}</strong></td>
+        <td><span class="badge badge-${e.tipo.toLowerCase()}">${e.tipo}</span></td>
+        <td>${fmtFecha(e.fecha)}</td>
+        <td>${e.lugar}</td>
+        <td><div class="td-actions">
+          <button class="btn-edit" onclick="openForm(${realIdx})">Editar</button>
+          <button class="btn-del" onclick="eliminar(${realIdx})">Eliminar</button>
+        </div></td>
+      </tr>
+    `;
+  }).join('');
+}
+
+// ---------- FORMULARIO ----------
+function openForm(idx) {
+  editIdx = idx !== undefined ? idx : null;
+  const e = editIdx !== null ? eventos[editIdx] : {};
+  document.getElementById('form-title').textContent = editIdx !== null ? 'Editar evento' : 'Nuevo evento';
+  document.getElementById('f-nombre').value = e.nombre || '';
+  document.getElementById('f-tipo').value = e.tipo || 'Interno';
+  document.getElementById('f-fecha').value = e.fecha || '';
+  document.getElementById('f-hora').value = e.hora || '';
+  document.getElementById('f-lugar').value = e.lugar || '';
+  document.getElementById('f-desc').value = e.desc || '';
+  document.getElementById('f-link').value = e.link || '';
+  document.getElementById('modal-form').classList.add('open');
+}
+
+function closeForm() {
+  document.getElementById('modal-form').classList.remove('open');
+}
+
+function saveEvento() {
+  const nombre = document.getElementById('f-nombre').value.trim();
+  const fecha = document.getElementById('f-fecha').value;
+  const lugar = document.getElementById('f-lugar').value.trim();
+  if (!nombre || !fecha || !lugar) {
+    alert('Por favor completa al menos: nombre del evento, fecha y lugar.');
+    return;
+  }
+  const e = {
+    id: editIdx !== null ? eventos[editIdx].id : Date.now(),
+    nombre,
+    tipo: document.getElementById('f-tipo').value,
+    fecha,
+    hora: document.getElementById('f-hora').value,
+    lugar,
+    desc: document.getElementById('f-desc').value.trim(),
+    link: document.getElementById('f-link').value.trim(),
+  };
+  if (editIdx !== null) eventos[editIdx] = e;
+  else eventos.push(e);
+  guardar();
+  closeForm();
+  renderAdmin();
+}
+
+function eliminar(idx) {
+  const nombre = eventos[idx].nombre;
+  if (!confirm(`¿Estás segura de que deseas eliminar "${nombre}"? Esta acción no se puede deshacer.`)) return;
+  eventos.splice(idx, 1);
+  guardar();
+  renderAdmin();
+}
+
+// ---------- CERRAR AL CLICK FUERA ----------
+document.getElementById('modal-detalle').addEventListener('click', function(e) {
+  if (e.target === this) closeDetalle();
+});
+document.getElementById('modal-form').addEventListener('click', function(e) {
+  if (e.target === this) closeForm();
+});
+
+// ---------- IMPORTAR ICS ----------
+function importarICS(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const texto = e.target.result;
+    procesarICS(texto);
+    input.value = '';
+  };
+  reader.readAsText(file, 'UTF-8');
+}
+
+function procesarICS(texto) {
+  const resultado = document.getElementById('ics-result');
+  try {
+    const eventos_ics = parsearICS(texto);
+    if (!eventos_ics.length) {
+      resultado.textContent = '⚠️ No se encontraron eventos en el archivo.';
+      resultado.className = 'ics-result err';
+      return;
+    }
+    let nuevos = 0, duplicados = 0;
+    eventos_ics.forEach(ev => {
+      const existe = eventos.find(e => e.nombre === ev.nombre && e.fecha === ev.fecha);
+      if (!existe) { eventos.push(ev); nuevos++; }
+      else { duplicados++; }
+    });
+    guardar();
+    renderAdmin();
+    let msg = `✅ Importación completada: ${nuevos} evento${nuevos !== 1 ? 's' : ''} nuevo${nuevos !== 1 ? 's' : ''}`;
+    if (duplicados) msg += `, ${duplicados} ya existía${duplicados !== 1 ? 'n' : ''} (omitido${duplicados !== 1 ? 's' : ''})`;
+    resultado.textContent = msg;
+    resultado.className = 'ics-result ok';
+    setTimeout(() => { resultado.className = 'ics-result'; }, 6000);
+  } catch(err) {
+    resultado.textContent = '❌ Error al leer el archivo. Asegúrate de que sea un .ics válido.';
+    resultado.className = 'ics-result err';
+  }
+}
+
+function parsearICS(texto) {
+  // Desplegar líneas continuadas (RFC 5545: líneas que empiezan con espacio o tab)
+  const lineas = texto.replace(/\r\n /g, '').replace(/\r\n\t/g, '').replace(/\r/g, '').split('\n');
+  const eventos_parsed = [];
+  let enEvento = false;
+  let actual = {};
+
+  lineas.forEach(linea => {
+    linea = linea.trim();
+    if (linea === 'BEGIN:VEVENT') { enEvento = true; actual = {}; return; }
+    if (linea === 'END:VEVENT') {
+      enEvento = false;
+      if (actual.nombre && actual.fecha) eventos_parsed.push(actual);
+      return;
+    }
+    if (!enEvento) return;
+
+    // SUMMARY → nombre
+    if (linea.startsWith('SUMMARY')) {
+      actual.nombre = linea.replace(/^SUMMARY[^:]*:/, '').trim();
+    }
+    // DTSTART → fecha y hora
+    else if (linea.startsWith('DTSTART')) {
+      const val = linea.replace(/^DTSTART[^:]*:/, '').trim();
+      actual.fecha = parsearFechaICS(val);
+      actual.hora = parsearHoraICS(val);
+    }
+    // LOCATION → lugar
+    else if (linea.startsWith('LOCATION')) {
+      actual.lugar = linea.replace(/^LOCATION[^:]*:/, '').trim() || 'Por confirmar';
+    }
+    // DESCRIPTION → desc
+    else if (linea.startsWith('DESCRIPTION')) {
+      actual.desc = linea.replace(/^DESCRIPTION[^:]*:/, '').replace(/\\n/g, ' ').replace(/\\,/g, ',').trim();
+    }
+    // URL → link de asistencia
+    else if (linea.startsWith('URL')) {
+      actual.link = linea.replace(/^URL[^:]*:/, '').trim();
+    }
+  });
+
+  // Asignar id, tipo por defecto y completar campos vacíos
+  return eventos_parsed.map(e => ({
+    id: Date.now() + Math.random(),
+    nombre: e.nombre || 'Sin nombre',
+    tipo: 'Interno',
+    fecha: e.fecha || '',
+    hora: e.hora || '08:00',
+    lugar: e.lugar || 'Por confirmar',
+    desc: e.desc || '',
+    link: e.link || ''
+  }));
+}
+
+function parsearFechaICS(val) {
+  // Formatos: 20260615T090000Z  o  20260615
+  const m = val.replace(/[TZ]/g, '').substring(0, 8);
+  if (m.length < 8) return '';
+  return `${m.substring(0,4)}-${m.substring(4,6)}-${m.substring(6,8)}`;
+}
+
+function parsearHoraICS(val) {
+  if (!val.includes('T')) return '08:00';
+  const t = val.split('T')[1].replace('Z','');
+  if (t.length < 4) return '08:00';
+  // Convertir de UTC a UTC-5 (Colombia)
+  let hh = parseInt(t.substring(0,2));
+  const mm = t.substring(2,4);
+  hh = hh - 5;
+  if (hh < 0) hh += 24;
+  return `${String(hh).padStart(2,'0')}:${mm}`;
+}
+
+// Drag & drop sobre la zona ICS
+const icsZone = document.getElementById('ics-zone');
+icsZone.addEventListener('dragover', e => { e.preventDefault(); icsZone.classList.add('drag-over'); });
+icsZone.addEventListener('dragleave', () => icsZone.classList.remove('drag-over'));
+icsZone.addEventListener('drop', e => {
+  e.preventDefault();
+  icsZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file && file.name.endsWith('.ics')) {
+    const reader = new FileReader();
+    reader.onload = ev => procesarICS(ev.target.result);
+    reader.readAsText(file, 'UTF-8');
+  }
+});
+
+// ---------- INIT ----------
+cargar();
+renderPublico();
+</script>
+</body>
+</html>
