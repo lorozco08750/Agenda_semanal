@@ -1317,9 +1317,21 @@ function parsearICS(texto) {
     else if (linea.startsWith('LOCATION')) {
       actual.lugar = linea.replace(/^LOCATION[^:]*:/, '').trim() || 'Por confirmar';
     }
+    // X-EAN-TIPO → clasificación explícita del calendario EAN
+    else if (linea.startsWith('X-EAN-TIPO')) {
+      const tipo = normalizarTipoICS(linea.replace(/^X-EAN-TIPO[^:]*:/, '').trim());
+      if (tipo) actual.tipo = tipo;
+    }
+    // CATEGORIES → respaldo para calendarios sin X-EAN-TIPO
+    else if (linea.startsWith('CATEGORIES')) {
+      actual.categorias = linea.replace(/^CATEGORIES[^:]*:/, '').trim();
+      if (!actual.tipo) actual.tipo = normalizarTipoICS(actual.categorias);
+    }
     // DESCRIPTION → desc
     else if (linea.startsWith('DESCRIPTION')) {
-      actual.desc = linea.replace(/^DESCRIPTION[^:]*:/, '').replace(/\\n/g, ' ').replace(/\\,/g, ',').trim();
+      const descripcion = linea.replace(/^DESCRIPTION[^:]*:/, '').replace(/\\n/g, ' ').replace(/\\,/g, ',').trim();
+      if (!actual.desc) actual.desc = descripcion;
+      if (!actual.tipo) actual.tipo = normalizarTipoICS(descripcion);
     }
     // URL → link de asistencia
     else if (linea.startsWith('URL')) {
@@ -1327,17 +1339,27 @@ function parsearICS(texto) {
     }
   });
 
-  // Asignar id, tipo por defecto y completar campos vacíos
+  // Asignar id y completar campos vacíos
   return eventos_parsed.map(e => ({
     id: Date.now() + Math.random(),
     nombre: e.nombre || 'Sin nombre',
-    tipo: 'Interno',
+    tipo: e.tipo || 'Interno',
     fecha: e.fecha || '',
     hora: e.hora || '08:00',
     lugar: e.lugar || 'Por confirmar',
     desc: e.desc || '',
     link: e.link || ''
   }));
+}
+
+function normalizarTipoICS(valor) {
+  const texto = String(valor || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+  if (texto.includes('extern')) return 'Externo';
+  if (texto.includes('intern')) return 'Interno';
+  return '';
 }
 
 function parsearFechaHoraICS(val) {
