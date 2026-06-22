@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agenda de Eventos — Universidad</title>
+<title>Eventos Universidad EAN</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -58,26 +58,20 @@
   .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
   }
-  .logo-icon {
-    width: 32px; height: 32px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
+  .logo-image {
+    width: 104px;
+    height: auto;
+    display: block;
   }
   .logo-text {
-    font-family: 'DM Serif Display', serif;
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: 600;
     color: #fff;
-    letter-spacing: -0.3px;
-  }
-  .logo-sub {
-    font-size: 11px;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 0.5px;
+    letter-spacing: 0;
     text-transform: uppercase;
+    white-space: nowrap;
   }
   .nav-tabs {
     display: flex;
@@ -356,6 +350,35 @@
 
   .modal-meta { display: flex; flex-direction: column; gap: 8px; }
   .modal-meta .meta-row { font-size: 14px; }
+  .detail-modal { max-width: 560px; }
+  .detail-label {
+    min-width: 105px;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .detail-value { color: var(--text-primary); }
+  .modal-meta .detail-value { flex: 1; }
+  .detail-value.is-empty { text-align: center; color: var(--text-muted); }
+  .detail-fields {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0 20px;
+    border-top: 1px solid var(--border);
+  }
+  .detail-field {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(50% - 10px);
+    gap: 5px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .detail-field.full { flex-basis: 100%; }
+  .detail-field .detail-label { min-width: 0; }
+  .detail-field .detail-value.is-empty { text-align: center; }
   .modal-desc {
     font-size: 14px;
     color: var(--text-secondary);
@@ -619,10 +642,15 @@
   .ics-result.err { background: var(--danger-bg); color: var(--danger); display: block; }
 
   @media (max-width: 600px) {
+    header { padding: 0 1rem; }
+    .header-inner { height: 68px; }
+    .logo { gap: 9px; }
+    .logo-image { width: 78px; }
+    .logo-text { font-size: 11px; white-space: normal; line-height: 1.25; max-width: 105px; }
     main { padding: 1rem; }
     .form-grid { grid-template-columns: 1fr; }
     .events-grid { grid-template-columns: 1fr; }
-    .logo-sub { display: none; }
+    .detail-field { flex-basis: 100%; }
     .admin-actions { width: 100%; }
     .admin-actions .btn-publish { flex: 1 0 100%; justify-content: center; }
     .admin-table-wrap { background: transparent; border: 0; box-shadow: none; overflow: visible; }
@@ -658,11 +686,8 @@
 <header>
   <div class="header-inner">
     <div class="logo">
-      <div class="logo-icon">📅</div>
-      <div>
-        <div class="logo-text">Agenda</div>
-        <div class="logo-sub">Eventos universitarios</div>
-      </div>
+      <img class="logo-image" src="assets/logo-ean.png" alt="Universidad EAN">
+      <div class="logo-text">Eventos Universidad EAN</div>
     </div>
     <div class="nav-tabs" id="admin-nav" hidden>
       <button class="tab active" id="tab-publico" onclick="showSection('publico')">Eventos</button>
@@ -681,7 +706,7 @@
     <div class="filters-bar">
       <div class="search-wrap">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <input class="search-input" type="text" id="search-input" placeholder="Buscar por nombre, lugar o descripción..." oninput="renderPublico()">
+        <input class="search-input" type="text" id="search-input" placeholder="Buscar por nombre, espacio, responsable u objetivo..." oninput="renderPublico()">
       </div>
       <div class="filter-pills">
         <button class="pill active" data-filter="todos" onclick="setFilter(this)">Todos</button>
@@ -738,7 +763,7 @@
             <th>Nombre del evento</th>
             <th>Tipo</th>
             <th>Fecha</th>
-            <th>Auditorio / lugar</th>
+            <th>Espacio</th>
             <th></th>
           </tr>
         </thead>
@@ -750,7 +775,7 @@
 
 <!-- MODAL DETALLE -->
 <div class="modal-overlay" id="modal-detalle">
-  <div class="modal">
+  <div class="modal detail-modal">
     <div class="modal-header">
       <h2 id="d-nombre"></h2>
       <button class="btn-close" onclick="closeDetalle()">×</button>
@@ -759,22 +784,43 @@
     <div class="modal-meta">
       <div class="meta-row">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        <span id="d-fecha"></span>
+        <span class="detail-label">Fecha</span>
+        <span class="detail-value" id="d-fecha"></span>
       </div>
       <div class="meta-row">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <span id="d-hora"></span>
+        <span class="detail-label">Hora de inicio</span>
+        <span class="detail-value" id="d-inicio"></span>
+      </div>
+      <div class="meta-row">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span class="detail-label">Hora fin</span>
+        <span class="detail-value" id="d-fin"></span>
       </div>
       <div class="meta-row">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span id="d-lugar"></span>
+        <span class="detail-label">Espacio</span>
+        <span class="detail-value" id="d-espacio"></span>
       </div>
     </div>
-    <div class="modal-desc" id="d-desc"></div>
-    <a class="modal-link" id="d-link" href="#" target="_blank" style="display:none">
-      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      Inscribirse / ver link de asistencia
-    </a>
+    <div class="detail-fields">
+      <div class="detail-field">
+        <span class="detail-label">Responsable</span>
+        <span class="detail-value" id="d-responsable"></span>
+      </div>
+      <div class="detail-field">
+        <span class="detail-label">Caso / reserva</span>
+        <span class="detail-value" id="d-caso"></span>
+      </div>
+      <div class="detail-field full">
+        <span class="detail-label">Objetivo</span>
+        <span class="detail-value" id="d-objetivo"></span>
+      </div>
+      <div class="detail-field">
+        <span class="detail-label">Aforo</span>
+        <span class="detail-value" id="d-aforo"></span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -818,24 +864,36 @@
         </select>
       </div>
       <div class="form-field">
-        <label>Auditorio / lugar</label>
-        <input type="text" id="f-lugar" placeholder="Ej: Auditorio Mayor">
+        <label>Espacio</label>
+        <input type="text" id="f-espacio" placeholder="Ej: Auditorio Nativos">
       </div>
       <div class="form-field">
         <label>Fecha</label>
         <input type="date" id="f-fecha">
       </div>
       <div class="form-field">
-        <label>Hora</label>
-        <input type="time" id="f-hora">
+        <label>Hora de inicio</label>
+        <input type="time" id="f-inicio">
+      </div>
+      <div class="form-field">
+        <label>Hora fin</label>
+        <input type="time" id="f-fin">
+      </div>
+      <div class="form-field">
+        <label>Responsable</label>
+        <input type="text" id="f-responsable">
+      </div>
+      <div class="form-field">
+        <label>Caso / reserva</label>
+        <input type="text" id="f-caso">
       </div>
       <div class="form-field form-full">
-        <label>Descripción</label>
-        <textarea id="f-desc" placeholder="¿De qué trata el evento? Incluye información relevante para los asistentes."></textarea>
+        <label>Objetivo</label>
+        <textarea id="f-objetivo" placeholder="Objetivo del evento"></textarea>
       </div>
-      <div class="form-field form-full">
-        <label>Link de asistencia / inscripción (opcional)</label>
-        <input type="url" id="f-link" placeholder="https://forms.gle/... o el enlace de registro">
+      <div class="form-field">
+        <label>Aforo</label>
+        <input type="number" id="f-aforo" min="0" inputmode="numeric">
       </div>
     </div>
     <div class="form-actions">
@@ -846,7 +904,7 @@
 </div>
 
 <footer>
-  Agenda de eventos universitarios &nbsp;·&nbsp; Todos los derechos reservados
+  Eventos Universidad EAN &nbsp;·&nbsp; Todos los derechos reservados
 </footer>
 
 <script>
@@ -870,7 +928,7 @@ async function cargar() {
     if (!response.ok) throw new Error('No se pudo cargar la agenda.');
     const data = await response.json();
     if (!Array.isArray(data)) throw new Error('El archivo de agenda no es válido.');
-    eventos = data;
+    eventos = data.map(normalizarEvento);
     loadError = false;
   } catch (error) {
     eventos = [];
@@ -897,6 +955,25 @@ function fmtHora(h) {
   const sufijo = hr >= 12 ? 'p.m.' : 'a.m.';
   const hr12 = hr > 12 ? hr - 12 : (hr === 0 ? 12 : hr);
   return `${hr12}:${mm} ${sufijo}`;
+}
+
+function normalizarEvento(evento) {
+  const espacioAnterior = evento.lugar && evento.lugar.toLowerCase() !== 'universidad ean' ? evento.lugar : '';
+  return {
+    ...evento,
+    horaInicio: evento.horaInicio || evento.hora || '',
+    horaFin: evento.horaFin || '',
+    espacio: evento.espacio || espacioAnterior || '',
+    responsable: evento.responsable || '',
+    caso: evento.caso || '',
+    objetivo: evento.objetivo || evento.desc || '',
+    aforo: evento.aforo || ''
+  };
+}
+
+function valorVisible(value) {
+  const text = String(value ?? '').trim();
+  return text && !/^(no registra|n\/a|na)$/i.test(text) ? text : '—';
 }
 
 function escapeHtml(value) {
@@ -1080,9 +1157,11 @@ function renderPublico() {
 
   let lista = eventos.filter(e => {
     const matchTipo = filtroActivo === 'todos' || e.tipo === filtroActivo;
-    const matchQ = !q || e.nombre.toLowerCase().includes(q) || (e.lugar||'').toLowerCase().includes(q) || (e.desc||'').toLowerCase().includes(q);
+    const searchable = [e.nombre, e.espacio, e.responsable, e.caso, e.objetivo, e.aforo]
+      .map(value => String(value || '').toLowerCase()).join(' ');
+    const matchQ = !q || searchable.includes(q);
     return matchTipo && matchQ;
-  }).sort((a, b) => a.fecha.localeCompare(b.fecha));
+  }).sort((a, b) => `${a.fecha}${a.horaInicio}`.localeCompare(`${b.fecha}${b.horaInicio}`));
 
   if (!lista.length) {
     grid.innerHTML = `<div class="empty"><div class="empty-icon">📭</div><p>No hay eventos que coincidan con tu búsqueda.</p></div>`;
@@ -1092,9 +1171,8 @@ function renderPublico() {
   grid.innerHTML = lista.map(e => {
     const nombre = escapeHtml(e.nombre);
     const tipo = e.tipo === 'Externo' ? 'Externo' : 'Interno';
-    const lugar = escapeHtml(e.lugar);
-    const desc = escapeHtml(e.desc);
-    const link = safeLink(e.link);
+    const espacio = escapeHtml(valorVisible(e.espacio));
+    const objetivo = escapeHtml(e.objetivo);
     return `
     <div class="event-card">
       <div class="card-top">
@@ -1108,20 +1186,16 @@ function renderPublico() {
         </div>
         <div class="meta-row">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          ${fmtHora(e.hora)}
+          ${fmtHora(e.horaInicio)}
         </div>
         <div class="meta-row">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          ${lugar}
+          ${espacio}
         </div>
       </div>
-      ${desc ? `<div class="card-desc">${desc}</div>` : ''}
+      ${objetivo ? `<div class="card-desc">${objetivo}</div>` : ''}
       <div class="card-footer">
         <button class="btn-detail" onclick="openDetalle(${e.id})">Ver detalles</button>
-        ${link
-          ? `<a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" class="btn-asistir"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Agendar asistencia</a>`
-          : `<span class="no-link-note">Sin inscripción requerida</span>`
-        }
       </div>
     </div>
   `;
@@ -1137,14 +1211,21 @@ function openDetalle(id) {
   badge.textContent = e.tipo;
   badge.className = `badge badge-${e.tipo.toLowerCase()}`;
   document.getElementById('d-fecha').textContent = fmtFecha(e.fecha);
-  document.getElementById('d-hora').textContent = fmtHora(e.hora);
-  document.getElementById('d-lugar').textContent = e.lugar;
-  document.getElementById('d-desc').textContent = e.desc || 'Sin descripción disponible.';
-  const lnk = document.getElementById('d-link');
-  const link = safeLink(e.link);
-  if (link) { lnk.href = link; lnk.style.display = 'flex'; }
-  else { lnk.style.display = 'none'; }
+  setDetailValue('d-inicio', e.horaInicio ? fmtHora(e.horaInicio) : '');
+  setDetailValue('d-fin', e.horaFin ? fmtHora(e.horaFin) : '');
+  setDetailValue('d-espacio', e.espacio);
+  setDetailValue('d-responsable', e.responsable);
+  setDetailValue('d-caso', e.caso);
+  setDetailValue('d-objetivo', e.objetivo);
+  setDetailValue('d-aforo', e.aforo);
   document.getElementById('modal-detalle').classList.add('open');
+}
+
+function setDetailValue(id, value) {
+  const element = document.getElementById(id);
+  const visible = valorVisible(value);
+  element.textContent = visible;
+  element.classList.toggle('is-empty', visible === '—');
 }
 
 function closeDetalle() {
@@ -1172,7 +1253,7 @@ function renderAdmin() {
         <td><strong style="font-weight:500">${escapeHtml(e.nombre)}</strong></td>
         <td><span class="badge badge-${tipo.toLowerCase()}">${tipo}</span></td>
         <td>${fmtFecha(e.fecha)}</td>
-        <td>${escapeHtml(e.lugar)}</td>
+        <td>${escapeHtml(valorVisible(e.espacio))}</td>
         <td><div class="td-actions">
           <button class="btn-edit" onclick="openForm(${realIdx})">Editar</button>
           <button class="btn-del" onclick="eliminar(${realIdx})">Eliminar</button>
@@ -1191,10 +1272,13 @@ function openForm(idx) {
   document.getElementById('f-nombre').value = e.nombre || '';
   document.getElementById('f-tipo').value = e.tipo || 'Interno';
   document.getElementById('f-fecha').value = e.fecha || '';
-  document.getElementById('f-hora').value = e.hora || '';
-  document.getElementById('f-lugar').value = e.lugar || '';
-  document.getElementById('f-desc').value = e.desc || '';
-  document.getElementById('f-link').value = e.link || '';
+  document.getElementById('f-inicio').value = e.horaInicio || '';
+  document.getElementById('f-fin').value = e.horaFin || '';
+  document.getElementById('f-espacio').value = e.espacio || '';
+  document.getElementById('f-responsable').value = e.responsable || '';
+  document.getElementById('f-caso').value = e.caso || '';
+  document.getElementById('f-objetivo').value = e.objetivo || '';
+  document.getElementById('f-aforo').value = e.aforo || '';
   document.getElementById('modal-form').classList.add('open');
 }
 
@@ -1206,9 +1290,9 @@ function saveEvento() {
   if (!requireAdmin()) return;
   const nombre = document.getElementById('f-nombre').value.trim();
   const fecha = document.getElementById('f-fecha').value;
-  const lugar = document.getElementById('f-lugar').value.trim();
-  if (!nombre || !fecha || !lugar) {
-    alert('Por favor completa al menos: nombre del evento, fecha y lugar.');
+  const espacio = document.getElementById('f-espacio').value.trim();
+  if (!nombre || !fecha || !espacio) {
+    alert('Por favor completa al menos: nombre del evento, fecha y espacio.');
     return;
   }
   const e = {
@@ -1216,10 +1300,14 @@ function saveEvento() {
     nombre,
     tipo: document.getElementById('f-tipo').value,
     fecha,
-    hora: document.getElementById('f-hora').value,
-    lugar,
-    desc: document.getElementById('f-desc').value.trim(),
-    link: document.getElementById('f-link').value.trim(),
+    horaInicio: document.getElementById('f-inicio').value,
+    horaFin: document.getElementById('f-fin').value,
+    espacio,
+    responsable: document.getElementById('f-responsable').value.trim(),
+    caso: document.getElementById('f-caso').value.trim(),
+    objetivo: document.getElementById('f-objetivo').value.trim(),
+    aforo: document.getElementById('f-aforo').value.trim(),
+    link: '',
   };
   if (editIdx !== null) eventos[editIdx] = e;
   else eventos.push(e);
@@ -1311,11 +1399,17 @@ function parsearICS(texto) {
     else if (linea.startsWith('DTSTART')) {
       const fechaHora = parsearFechaHoraICS(linea.replace(/^DTSTART[^:]*:/, '').trim());
       actual.fecha = fechaHora.fecha;
-      actual.hora = fechaHora.hora;
+      actual.horaInicio = fechaHora.hora;
     }
-    // LOCATION → lugar
+    // DTEND → hora de finalización
+    else if (linea.startsWith('DTEND')) {
+      const fechaHora = parsearFechaHoraICS(linea.replace(/^DTEND[^:]*:/, '').trim());
+      actual.horaFin = fechaHora.hora;
+    }
+    // LOCATION → espacio
     else if (linea.startsWith('LOCATION')) {
-      actual.lugar = linea.replace(/^LOCATION[^:]*:/, '').trim() || 'Por confirmar';
+      const espacio = decodificarTextoICS(linea.replace(/^LOCATION[^:]*:/, '').trim());
+      if (espacio.toLowerCase() !== 'universidad ean') actual.espacio = espacio;
     }
     // X-EAN-TIPO → clasificación explícita del calendario EAN
     else if (linea.startsWith('X-EAN-TIPO')) {
@@ -1326,11 +1420,31 @@ function parsearICS(texto) {
     else if (linea.startsWith('CATEGORIES')) {
       actual.categorias = linea.replace(/^CATEGORIES[^:]*:/, '').trim();
       if (!actual.tipo) actual.tipo = normalizarTipoICS(actual.categorias);
+      const categorias = actual.categorias.split(',').map(decodificarTextoICS);
+      if (!actual.espacio && categorias.length > 1) actual.espacio = categorias.slice(1).join(', ');
+    }
+    else if (linea.startsWith('X-EAN-ESPACIO')) {
+      actual.espacio = decodificarTextoICS(linea.replace(/^X-EAN-ESPACIO[^:]*:/, '').trim());
+    }
+    else if (linea.startsWith('X-EAN-RESPONSABLE')) {
+      actual.responsable = decodificarTextoICS(linea.replace(/^X-EAN-RESPONSABLE[^:]*:/, '').trim());
+    }
+    else if (linea.startsWith('X-EAN-CASO')) {
+      actual.caso = decodificarTextoICS(linea.replace(/^X-EAN-CASO[^:]*:/, '').trim());
+    }
+    else if (linea.startsWith('X-EAN-OBJETIVO')) {
+      actual.objetivo = decodificarTextoICS(linea.replace(/^X-EAN-OBJETIVO[^:]*:/, '').trim());
+    }
+    else if (linea.startsWith('X-EAN-AFORO')) {
+      actual.aforo = decodificarTextoICS(linea.replace(/^X-EAN-AFORO[^:]*:/, '').trim());
     }
     // DESCRIPTION → desc
     else if (linea.startsWith('DESCRIPTION')) {
-      const descripcion = linea.replace(/^DESCRIPTION[^:]*:/, '').replace(/\\n/g, ' ').replace(/\\,/g, ',').trim();
-      if (!actual.desc) actual.desc = descripcion;
+      const descripcion = decodificarTextoICS(linea.replace(/^DESCRIPTION[^:]*:/, '').trim());
+      if (!actual.responsable) actual.responsable = extraerDetalleICS(descripcion, 'Responsable');
+      if (!actual.caso) actual.caso = extraerDetalleICS(descripcion, 'Caso(?: \/ reserva| y # de reserva)?');
+      if (!actual.objetivo) actual.objetivo = extraerDetalleICS(descripcion, 'Objetivo');
+      if (!actual.aforo) actual.aforo = extraerDetalleICS(descripcion, '(?:Aforo|PAX)');
       if (!actual.tipo) actual.tipo = normalizarTipoICS(descripcion);
     }
     // URL → link de asistencia
@@ -1345,11 +1459,29 @@ function parsearICS(texto) {
     nombre: e.nombre || 'Sin nombre',
     tipo: e.tipo || 'Interno',
     fecha: e.fecha || '',
-    hora: e.hora || '08:00',
-    lugar: e.lugar || 'Por confirmar',
-    desc: e.desc || '',
+    horaInicio: e.horaInicio || '08:00',
+    horaFin: e.horaFin || '',
+    espacio: e.espacio || '',
+    responsable: e.responsable || '',
+    caso: e.caso || '',
+    objetivo: e.objetivo || '',
+    aforo: e.aforo || '',
     link: e.link || ''
   }));
+}
+
+function decodificarTextoICS(value) {
+  return String(value || '')
+    .replace(/\\n/gi, '\n')
+    .replace(/\\,/g, ',')
+    .replace(/\\;/g, ';')
+    .replace(/\\\\/g, '\\')
+    .trim();
+}
+
+function extraerDetalleICS(description, labelPattern) {
+  const match = description.match(new RegExp(`${labelPattern}[ \\t]*:[ \\t]*([^\\r\\n]*)`, 'i'));
+  return match ? match[1].trim() : '';
 }
 
 function normalizarTipoICS(valor) {

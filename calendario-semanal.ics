@@ -1,0 +1,200 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Universidad EAN//Agenda Semanal//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Eventos Universidad EAN
+X-WR-TIMEZONE:America/Bogota
+BEGIN:VEVENT
+UID:2026062401@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260624T070000
+DTEND;TZID=America/Bogota:20260624T110000
+SUMMARY:Curso de Formación a la Medida Decameron
+LOCATION:Magistral Fundadores
+CATEGORIES:interno,Magistral Fundadores
+DESCRIPTION:Responsable: CESAR AUGUSTO LAGO (EXTENSIÓN Y CONSULTORIA)\nCaso / reserva: 79803 - 30165275\nObjetivo: Clase a la medida.\nAforo: 60
+X-EAN-TIPO:Interno
+X-EAN-ESPACIO:Magistral Fundadores
+X-EAN-RESPONSABLE:CESAR AUGUSTO LAGO (EXTENSIÓN Y CONSULTORIA)
+X-EAN-CASO:79803 - 30165275
+X-EAN-OBJETIVO:Clase a la medida.
+X-EAN-AFORO:60
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062202@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260622T120000
+DTEND;TZID=America/Bogota:20260622T160000
+SUMMARY:Retransmisión Partidos del Mundial de Fútbol
+LOCATION:Aula Múltiple
+CATEGORIES:interno,Aula Múltiple
+DESCRIPTION:Responsable: JESUS TORREGROSA (BIENESTAR UNIVERSITARIO)\nCaso / reserva: 82207 - 30171591\nObjetivo: Espacio Socialización.\nAforo: 60
+X-EAN-TIPO:Interno
+X-EAN-ESPACIO:Aula Múltiple
+X-EAN-RESPONSABLE:JESUS TORREGROSA (BIENESTAR UNIVERSITARIO)
+X-EAN-CASO:82207 - 30171591
+X-EAN-OBJETIVO:Espacio Socialización.
+X-EAN-AFORO:60
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062603@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260626T050000
+DTEND;TZID=America/Bogota:20260626T180000
+SUMMARY:Grabación Teleset
+LOCATION:GRABACIONES AV
+CATEGORIES:externo,GRABACIONES AV
+DESCRIPTION:Responsable: \nCaso / reserva: \nObjetivo: \nAforo: 
+X-EAN-TIPO:Externo
+X-EAN-ESPACIO:GRABACIONES AV
+X-EAN-RESPONSABLE:
+X-EAN-CASO:
+X-EAN-OBJETIVO:
+X-EAN-AFORO:
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062604@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260626T170000
+DTEND;TZID=America/Bogota:20260626T210000
+SUMMARY:Jornada de Bienvenida Regional
+LOCATION:Magistral Fundadores
+CATEGORIES:interno,Magistral Fundadores
+DESCRIPTION:Responsable: Regionales\nCaso / reserva: \nObjetivo: Jornada de Bienvenida.\nAforo: 30
+X-EAN-TIPO:Interno
+X-EAN-ESPACIO:Magistral Fundadores
+X-EAN-RESPONSABLE:Regionales
+X-EAN-CASO:
+X-EAN-OBJETIVO:Jornada de Bienvenida.
+X-EAN-AFORO:30
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062405@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260624T080000
+DTEND;TZID=America/Bogota:20260624T120000
+SUMMARY:Desayuno de Lanzamiento del Programa Tángara Investment Readiness de Impacta
+LOCATION:Aula Múltiple
+CATEGORIES:interno,Aula Múltiple
+DESCRIPTION:Responsable: ANDRES FELIPE CABALLERO (IMPACTA)\nCaso / reserva: 81510 - 30171183\nObjetivo: Iniciativa orientada al fortalecimiento de emprendimientos y empresas con potencial de crecimiento\, inversión e impacto.\nAforo: 30
+X-EAN-TIPO:Interno
+X-EAN-ESPACIO:Aula Múltiple
+X-EAN-RESPONSABLE:ANDRES FELIPE CABALLERO (IMPACTA)
+X-EAN-CASO:81510 - 30171183
+X-EAN-OBJETIVO:Iniciativa orientada al fortalecimiento de emprendimientos y empresas con potencial de crecimiento\, inversión e impacto.
+X-EAN-AFORO:30
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062406@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260624T060000
+DTEND;TZID=America/Bogota:20260624T083000
+SUMMARY:Desayuno Directivos Decameron
+LOCATION:Auditorio Fundadores
+CATEGORIES:interno,Auditorio Fundadores
+DESCRIPTION:Responsable: CESAR AUGUSTO LAGO - ROBERT ALTURO MACIAS (EXTENSIÓN Y CONSULTORIA)\nCaso / reserva: 82411 - 30165275\nObjetivo: Desayuno Directivos Decameron.\nAforo: 35
+X-EAN-TIPO:Interno
+X-EAN-ESPACIO:Auditorio Fundadores
+X-EAN-RESPONSABLE:CESAR AUGUSTO LAGO - ROBERT ALTURO MACIAS (EXTENSIÓN Y CONSULTORIA)
+X-EAN-CASO:82411 - 30165275
+X-EAN-OBJETIVO:Desayuno Directivos Decameron.
+X-EAN-AFORO:35
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062507@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260625T080000
+DTEND;TZID=America/Bogota:20260625T123000
+SUMMARY:Griky
+LOCATION:Magistral Fundadores
+CATEGORIES:externo,Magistral Fundadores
+DESCRIPTION:Responsable: JESICA\nCaso / reserva: \nObjetivo: \nAforo: 
+X-EAN-TIPO:Externo
+X-EAN-ESPACIO:Magistral Fundadores
+X-EAN-RESPONSABLE:JESICA
+X-EAN-CASO:
+X-EAN-OBJETIVO:
+X-EAN-AFORO:
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062608@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260626T150000
+DTEND;TZID=America/Bogota:20260626T170000
+SUMMARY:Encuentro de Pensionados EANistas
+LOCATION:Auditorio Fundadores
+CATEGORIES:interno,Auditorio Fundadores
+DESCRIPTION:Responsable: ROXANA PUENTES (TH)\nCaso / reserva: 82274 - 30171547\nObjetivo: Fundamentos de Metodología SCRUM.\nAforo: 40
+X-EAN-TIPO:Interno
+X-EAN-ESPACIO:Auditorio Fundadores
+X-EAN-RESPONSABLE:ROXANA PUENTES (TH)
+X-EAN-CASO:82274 - 30171547
+X-EAN-OBJETIVO:Fundamentos de Metodología SCRUM.
+X-EAN-AFORO:40
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062309@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260623T073000
+DTEND;TZID=America/Bogota:20260623T180000
+SUMMARY:Liderazgo que Trasciende - Essentia
+LOCATION:Auditorio Fundadores
+CATEGORIES:interno,Auditorio Fundadores
+DESCRIPTION:Responsable: DAVID ALEXANDER MUÑOZ (EXTENSIÓN Y CONSULTORIA)\nCaso / reserva: 82253 - 30171546\nObjetivo: Clase\nAforo: 36
+X-EAN-TIPO:Interno
+X-EAN-ESPACIO:Auditorio Fundadores
+X-EAN-RESPONSABLE:DAVID ALEXANDER MUÑOZ (EXTENSIÓN Y CONSULTORIA)
+X-EAN-CASO:82253 - 30171546
+X-EAN-OBJETIVO:Clase
+X-EAN-AFORO:36
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062510@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260625T150000
+DTEND;TZID=America/Bogota:20260625T180000
+SUMMARY:Retransmisión Partidos del Mundial de Fútbol
+LOCATION:Aula Múltiple
+CATEGORIES:interno,Aula Múltiple
+DESCRIPTION:Responsable: JESUS TORREGROSA (BIENESTAR UNIVERSITARIO)\nCaso / reserva: 82207 - 30171591\nObjetivo: Espacio Socialización.\nAforo: 60
+X-EAN-TIPO:Interno
+X-EAN-ESPACIO:Aula Múltiple
+X-EAN-RESPONSABLE:JESUS TORREGROSA (BIENESTAR UNIVERSITARIO)
+X-EAN-CASO:82207 - 30171591
+X-EAN-OBJETIVO:Espacio Socialización.
+X-EAN-AFORO:60
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062411@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260624T140000
+DTEND;TZID=America/Bogota:20260624T180000
+SUMMARY:Retransmisión Partidos del Mundial de Fútbol
+LOCATION:Magistral Fundadores
+CATEGORIES:interno,Magistral Fundadores
+DESCRIPTION:Responsable: JESUS TORREGROSA (BIENESTAR UNIVERSITARIO)\nCaso / reserva: 82207 - 30171591\nObjetivo: Espacio Socialización.\nAforo: 60
+X-EAN-TIPO:Interno
+X-EAN-ESPACIO:Magistral Fundadores
+X-EAN-RESPONSABLE:JESUS TORREGROSA (BIENESTAR UNIVERSITARIO)
+X-EAN-CASO:82207 - 30171591
+X-EAN-OBJETIVO:Espacio Socialización.
+X-EAN-AFORO:60
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2026062312@universidadean.edu.co
+DTSTART;TZID=America/Bogota:20260623T120000
+DTEND;TZID=America/Bogota:20260623T180000
+SUMMARY:Retransmisión Partidos del Mundial de Fútbol
+LOCATION:Aula Múltiple
+CATEGORIES:interno,Aula Múltiple
+DESCRIPTION:Responsable: JESUS TORREGROSA (BIENESTAR UNIVERSITARIO)\nCaso / reserva: 82207 - 30171591\nObjetivo: Espacio Socialización.\nAforo: 60
+X-EAN-TIPO:Interno
+X-EAN-ESPACIO:Aula Múltiple
+X-EAN-RESPONSABLE:JESUS TORREGROSA (BIENESTAR UNIVERSITARIO)
+X-EAN-CASO:82207 - 30171591
+X-EAN-OBJETIVO:Espacio Socialización.
+X-EAN-AFORO:60
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
