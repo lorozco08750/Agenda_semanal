@@ -1,6 +1,6 @@
 [
   {
-    "id": 1782490896214.1938,
+    "id": 1782492026908.4146,
     "nombre": "TALLER DE TNC",
     "tipo": "Externo",
     "fecha": "2026-07-03",
@@ -14,7 +14,7 @@
     "link": ""
   },
   {
-    "id": 1782490896214.92,
+    "id": 1782492026908.899,
     "nombre": "Cierre del Diplomado Dirección Estratégica de la Seguridad Integral - Vigias de Colombia",
     "tipo": "Interno",
     "fecha": "2026-06-30",
@@ -28,7 +28,7 @@
     "link": ""
   },
   {
-    "id": 1782490896214.4553,
+    "id": 1782492026908.6394,
     "nombre": "CUPÓN_SECRETARÍA DISTRITAL DE DESAROLLO ECONOMICO",
     "tipo": "Interno",
     "fecha": "2026-07-01",
@@ -42,7 +42,7 @@
     "link": ""
   },
   {
-    "id": 1782490896214.1577,
+    "id": 1782492026908.19,
     "nombre": "CUPÓN_SECRETARÍA DISTRITAL DE DESAROLLO ECONOMICO",
     "tipo": "Interno",
     "fecha": "2026-07-01",
@@ -56,7 +56,7 @@
     "link": ""
   },
   {
-    "id": 1782490896214.5774,
+    "id": 1782492026908.6174,
     "nombre": "RECTORIA Y EMBAJADA DE NUEVA ZELANDA",
     "tipo": "Interno",
     "fecha": "2026-06-30",
@@ -67,132 +67,6 @@
     "caso": "82980 - 30171732",
     "objetivo": "Panel",
     "aforo": "70",
-    "link": ""
-  },
-  {
-    "id": 1782490896214.1553,
-    "nombre": "FACULTAD DE HUMANIDADES",
-    "tipo": "Interno",
-    "fecha": "2026-06-09",
-    "horaInicio": "08:00",
-    "horaFin": "11:00",
-    "espacio": "Auditorio Nativos",
-    "responsable": "JHOANNA KATERINE MEDINA (FHCS)",
-    "caso": "80049- 30170341",
-    "objetivo": "Cierre semestre",
-    "aforo": "150",
-    "link": ""
-  },
-  {
-    "id": 1782490896214.6853,
-    "nombre": "con representantes internacionales de nuestro proveedor de equipos de laboratorio Electroequipos - Gunt",
-    "tipo": "Interno",
-    "fecha": "2026-06-12",
-    "horaInicio": "08:00",
-    "horaFin": "11:00",
-    "espacio": "Magistral Fundadores",
-    "responsable": "SANDRA DEL PILAR FORERO POVEDA (FIN - LABORATORIOS)",
-    "caso": "80513 - 30170769",
-    "objetivo": "Reunión proveedor laboratorio",
-    "aforo": "40",
-    "link": ""
-  },
-  {
-    "id": 1782490896214.7627,
-    "nombre": "LANZAMIENTO MUNDIAL DE FUTBOL PANTALLA",
-    "tipo": "Interno",
-    "fecha": "2026-06-11",
-    "horaInicio": "11:00",
-    "horaFin": "18:00",
-    "espacio": "Auditorio Nativos",
-    "responsable": "ARMANDO BERDUGO (EXPERIENCIA COLABORADOR)",
-    "caso": "81453 - 30171402",
-    "objetivo": "Lanzamiento Mundial",
-    "aforo": "150",
-    "link": ""
-  },
-  {
-    "id": 1782490896214.9114,
-    "nombre": "CAPACITACIÓN VOCEROS",
-    "tipo": "Interno",
-    "fecha": "2026-06-09",
-    "horaInicio": "07:30",
-    "horaFin": "11:00",
-    "espacio": "Aula Múltiple",
-    "responsable": "MONICA RAMOS",
-    "caso": "",
-    "objetivo": "Capacitación",
-    "aforo": "20",
-    "link": ""
-  },
-  {
-    "id": 1782490896214.941,
-    "nombre": "CAPACITACIÓN VOCEROS",
-    "tipo": "Interno",
-    "fecha": "2026-06-10",
-    "horaInicio": "07:30",
-    "horaFin": "11:00",
-    "espacio": "Aula Múltiple",
-    "responsable": "MONICA RAMOS",
-    "caso": "",
-    "objetivo": "Capacitación",
-    "aforo": "20",
-    "link": ""
-  },
-  {
-    "id": 1782490896214.9912,
-    "nombre": "CAPACITACIÓN VOCEROS",
-    "tipo": "Interno",
-    "fecha": "2026-06-11",
-    "horaInicio": "07:30",
-    "horaFin": "11:00",
-    "espacio": "Aula Múltiple",
-    "responsable": "MONICA RAMOS",
-    "caso": "",
-    "objetivo": "Capacitación",
-    "aforo": "20",
-    "link": ""
-  },
-  {
-    "id": 1782490896214.1748,
-    "nombre": "CLEFI CIERRE DE EMPRENDEDORES",
-    "tipo": "Externo",
-    "fecha": "2026-06-12",
-    "horaInicio": "13:30",
-    "horaFin": "18:00",
-    "espacio": "Magistral Fundadores",
-    "responsable": "",
-    "caso": "",
-    "objetivo": "",
-    "aforo": "",
-    "link": ""
-  },
-  {
-    "id": 1782490896214.1523,
-    "nombre": "Proyecto Bootcamp_ Inversión estratégica y nuevos horizontes - Cavipetrol dirigido a directivos de Cavipetrol",
-    "tipo": "Interno",
-    "fecha": "2026-06-10",
-    "horaInicio": "12:00",
-    "horaFin": "14:00",
-    "espacio": "Aula Múltiple",
-    "responsable": "ALEJANDRA DUARTE MORENO (EXTENSIÓN Y CONSULTORIA)",
-    "caso": "81368 - 30171255",
-    "objetivo": "Curso de Extensión y consultoria",
-    "aforo": "30",
-    "link": ""
-  },
-  {
-    "id": 1782490896214.8394,
-    "nombre": "Proyecto Bootcamp_ Inversión estratégica y nuevos horizontes - Cavipetrol dirigido a directivos de Cavipetrol",
-    "tipo": "Interno",
-    "fecha": "2026-06-11",
-    "horaInicio": "12:00",
-    "horaFin": "14:00",
-    "espacio": "Aula Múltiple",
-    "responsable": "ALEJANDRA DUARTE MORENO (EXTENSIÓN Y CONSULTORIA)",
-    "caso": "81368 - 30171255",
-    "objetivo": "Curso de Extensión y consultoria",
-    "aforo": "30",
     "link": ""
   }
 ]
