@@ -14,20 +14,6 @@
     "link": ""
   },
   {
-    "id": 1782492026908.899,
-    "nombre": "Cierre del Diplomado Dirección Estratégica de la Seguridad Integral - Vigias de Colombia",
-    "tipo": "Interno",
-    "fecha": "2026-06-30",
-    "horaInicio": "17:00",
-    "horaFin": "21:30",
-    "espacio": "Aula Múltiple",
-    "responsable": "ROBERTO ARTURO MACIAS (EXTENSIÓN Y CONSULTORIA)",
-    "caso": "80765 - 30171032",
-    "objetivo": "Cierre diplomado",
-    "aforo": "25",
-    "link": ""
-  },
-  {
     "id": 1782492026908.6394,
     "nombre": "CUPÓN_SECRETARÍA DISTRITAL DE DESAROLLO ECONOMICO",
     "tipo": "Interno",
@@ -57,15 +43,15 @@
   },
   {
     "id": 1782492026908.6174,
-    "nombre": "RECTORIA Y EMBAJADA DE NUEVA ZELANDA",
+    "nombre": "TURISMO INDÍGENA Y TURISMO SOSTENIBLE: APRENDIZAJE DESDE LA EXPERIENCIA DE NUEVA ZELANDIA",
     "tipo": "Interno",
     "fecha": "2026-06-30",
     "horaInicio": "14:30",
     "horaFin": "17:30",
-    "espacio": "Magistral Fundadores",
+    "espacio": "Auditorio Fundadores",
     "responsable": "JAIME REYES (FHCS)",
     "caso": "82980 - 30171732",
-    "objetivo": "Panel",
+    "objetivo": "Una oportunidad para compartir experiencias sobre la conexión entre el turismo sostenible y las comunidades indígenas. \nInscripciones limitadas: https://docs.google.com/forms/d/e/1FAIpQLSd0UMOXtMtVTdzW7U4krx_0R9owkU54phUaOJixsQXFIxk36g/viewform?pli=1",
     "aforo": "70",
     "link": ""
   }
