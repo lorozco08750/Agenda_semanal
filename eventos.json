@@ -1,6 +1,48 @@
 [
   {
-    "id": 1783352489855.673,
+    "id": 1783377777039.142,
+    "nombre": "POSTERS CONCURSO DE CERVEZA / OPERACIONES UNITARIAS",
+    "tipo": "Interno",
+    "fecha": "2026-06-05",
+    "horaInicio": "10:00",
+    "horaFin": "16:00",
+    "espacio": "LOBBY Y PUENTE",
+    "responsable": "DIANA MILENA LEÓN - FIN",
+    "caso": "80156",
+    "objetivo": "Presentación Proyectos",
+    "aforo": "",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.459,
+    "nombre": "SUSTENTACIÓN TRABAJO DE GRADO",
+    "tipo": "Interno",
+    "fecha": "2026-06-04",
+    "horaInicio": "07:30",
+    "horaFin": "20:00",
+    "espacio": "Aula Múltiple",
+    "responsable": "AURA JULIETH VILLEGAS - TRABAJO DE GRADO",
+    "caso": "80153 - 30170342",
+    "objetivo": "Sustentación trabajos de grado",
+    "aforo": "20",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.218,
+    "nombre": "FACULTAD DE HUMANIDADES",
+    "tipo": "Interno",
+    "fecha": "2026-06-09",
+    "horaInicio": "08:00",
+    "horaFin": "11:00",
+    "espacio": "Auditorio Nativos",
+    "responsable": "JHOANNA KATERINE MEDINA (FHCS)",
+    "caso": "80049- 30170341",
+    "objetivo": "Cierre semestre",
+    "aforo": "150",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.4243,
     "nombre": "MESA DE TRABAJO / CONGRESO DISTRITAL DE DIVERSIDAD\\, EQUIDAD E INCLUSIÓN",
     "tipo": "Interno",
     "fecha": "2026-07-29",
@@ -14,7 +56,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.566,
+    "id": 1783377777039.6987,
     "nombre": "MONTAJE EVENTO EXTERNO: COLOMBIA EXCELENTE",
     "tipo": "Externo",
     "fecha": "2026-07-14",
@@ -28,7 +70,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.7314,
+    "id": 1783377777039.161,
     "nombre": "COLOMBIA EXCELENTE",
     "tipo": "Externo",
     "fecha": "2026-07-15",
@@ -42,7 +84,21 @@
     "link": ""
   },
   {
-    "id": 1783352489855.7644,
+    "id": 1783377777039.7075,
+    "nombre": "FERIA DE VIVIENDA",
+    "tipo": "Interno",
+    "fecha": "2026-06-02",
+    "horaInicio": "09:00",
+    "horaFin": "16:00",
+    "espacio": "Aula Múltiple",
+    "responsable": "ARMANDO BERDUGO (EXPERIENCIA COLABORADOR)",
+    "caso": "79465 - 30165113",
+    "objetivo": "Feria de Vivienda",
+    "aforo": "40",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.3696,
     "nombre": "CONGRESO DISTRITAL DE DIVERSIDAD\\, EQUIDAD E INCLUSIÓN",
     "tipo": "Interno",
     "fecha": "2026-07-29",
@@ -56,7 +112,77 @@
     "link": ""
   },
   {
-    "id": 1783352489855.848,
+    "id": 1783377777039.9016,
+    "nombre": "RETO DE MERCADEO - IMPACTA",
+    "tipo": "Interno",
+    "fecha": "2026-06-03",
+    "horaInicio": "11:00",
+    "horaFin": "17:00",
+    "espacio": "Magistral Fundadores",
+    "responsable": "ANA ESLAVA NUÑEZ - IMPACTA",
+    "caso": "78583- 30164643",
+    "objetivo": "Sustentación.",
+    "aforo": "50",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.8093,
+    "nombre": "RETO DE MERCADEO - IMPACTA",
+    "tipo": "Interno",
+    "fecha": "2026-06-05",
+    "horaInicio": "11:00",
+    "horaFin": "17:00",
+    "espacio": "Magistral Fundadores",
+    "responsable": "ANA ESLAVA NUÑEZ - IMPACTA",
+    "caso": "78583- 30164643",
+    "objetivo": "Sustentación.",
+    "aforo": "50",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.6533,
+    "nombre": "RETO DE MERCADEO - IMPACTA",
+    "tipo": "Interno",
+    "fecha": "2026-06-02",
+    "horaInicio": "07:00",
+    "horaFin": "17:00",
+    "espacio": "Magistral Fundadores",
+    "responsable": "ANA ESLAVA NUÑEZ - IMPACTA",
+    "caso": "78583- 30164643",
+    "objetivo": "Sustentación.",
+    "aforo": "50",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.475,
+    "nombre": "RETO DE MERCADEO - IMPACTA",
+    "tipo": "Interno",
+    "fecha": "2026-06-04",
+    "horaInicio": "07:00",
+    "horaFin": "17:00",
+    "espacio": "Magistral Fundadores",
+    "responsable": "ANA ESLAVA NUÑEZ - IMPACTA",
+    "caso": "78583- 30164643",
+    "objetivo": "Sustentación.",
+    "aforo": "50",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.276,
+    "nombre": "EXPO EAN POSGRADOS",
+    "tipo": "Interno",
+    "fecha": "2026-06-20",
+    "horaInicio": "08:00",
+    "horaFin": "14:00",
+    "espacio": "Auditorio Nativos",
+    "responsable": "ANDREA SUAREZ - BTL GERENCIA DE PROYECCIÓN Y CRECIMIENTO",
+    "caso": "77532 - 30164402",
+    "objetivo": "*",
+    "aforo": "250",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.8064,
     "nombre": "FAFCE_JORNADAS DE BIENVENIDA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-14",
@@ -70,7 +196,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.5269,
+    "id": 1783377777039.4287,
     "nombre": "FIN_JORNADAS DE BIENVENIDA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-15",
@@ -84,7 +210,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.695,
+    "id": 1783377777039.2827,
     "nombre": "FHCS_JORNADAS DE BIENVENIDA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-16",
@@ -98,7 +224,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.0796,
+    "id": 1783377777039.4153,
     "nombre": "Leadership forum / Grupo Valora",
     "tipo": "Externo",
     "fecha": "2026-07-30",
@@ -112,7 +238,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.3792,
+    "id": 1783377777039.5962,
     "nombre": "GRADOS PRIVADOS",
     "tipo": "Interno",
     "fecha": "2026-07-31",
@@ -126,7 +252,63 @@
     "link": ""
   },
   {
-    "id": 1783352489855.4993,
+    "id": 1783377777039.336,
+    "nombre": "Cierre reto \"El signo y sus significaciones\" 2026-1",
+    "tipo": "Interno",
+    "fecha": "2026-06-02",
+    "horaInicio": "10:00",
+    "horaFin": "12:00",
+    "espacio": "Auditorio Nativos",
+    "responsable": "PAOLA OSPINA RODRIGUEZ (FHCS)",
+    "caso": "73489- 30162894",
+    "objetivo": "Cierre Unidad Académica",
+    "aforo": "120",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.6248,
+    "nombre": "EVENTO EXTERNO : CIRCOMBIA",
+    "tipo": "Externo",
+    "fecha": "2026-06-20",
+    "horaInicio": "14:00",
+    "horaFin": "20:00",
+    "espacio": "Auditorio Orígenes",
+    "responsable": "",
+    "caso": "",
+    "objetivo": "",
+    "aforo": "",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.0432,
+    "nombre": "con representantes internacionales de nuestro proveedor de equipos de laboratorio Electroequipos - Gunt",
+    "tipo": "Interno",
+    "fecha": "2026-06-12",
+    "horaInicio": "08:00",
+    "horaFin": "11:00",
+    "espacio": "Magistral Fundadores",
+    "responsable": "SANDRA DEL PILAR FORERO POVEDA (FIN - LABORATORIOS)",
+    "caso": "80513 - 30170769",
+    "objetivo": "Reunión proveedor laboratorio",
+    "aforo": "40",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.1892,
+    "nombre": "CIERRE DE SEMESTRE GRUPO ESTUDIANTES MID",
+    "tipo": "Interno",
+    "fecha": "2026-06-02",
+    "horaInicio": "17:00",
+    "horaFin": "21:00",
+    "espacio": "Auditorio Nativos",
+    "responsable": "HAIDY MORENO (FAFCE)",
+    "caso": "80416- 30170726",
+    "objetivo": "Entrega de reconocimientos y cierre semestre",
+    "aforo": "40",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.0356,
     "nombre": "EVENTO EXTERNO TALLER DE TNC",
     "tipo": "Externo",
     "fecha": "2026-07-03",
@@ -140,7 +322,21 @@
     "link": ""
   },
   {
-    "id": 1783352489855.0803,
+    "id": 1783377777039.8477,
+    "nombre": "DIPLOMADO FORMACIÓN DOCENTE CONVENIO SECRETARIA DE",
+    "tipo": "Interno",
+    "fecha": "2026-06-13",
+    "horaInicio": "08:00",
+    "horaFin": "11:30",
+    "espacio": "Magistral Fundadores",
+    "responsable": "LIDA MARCELA SALAZAR (EXTENSIÓN Y CONSULTORIA)",
+    "caso": "81866 - 30171550",
+    "objetivo": "Diplomado SED",
+    "aforo": "60",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.7373,
     "nombre": "REUNIÓN CON EL MINISTERIO DE JUSTICIA",
     "tipo": "Interno",
     "fecha": "2026-07-08",
@@ -154,7 +350,21 @@
     "link": ""
   },
   {
-    "id": 1783352489855.1143,
+    "id": 1783377777039.2349,
+    "nombre": "REUNION CEPE",
+    "tipo": "Externo",
+    "fecha": "2026-06-18",
+    "horaInicio": "08:00",
+    "horaFin": "13:00",
+    "espacio": "Magistral Fundadores",
+    "responsable": "",
+    "caso": "",
+    "objetivo": "",
+    "aforo": "",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.8406,
     "nombre": "EVENTO BOLETERÍA: MEDIA VIDA-CAMILO SHOW SAS \"LA VIDA ES HOY\"",
     "tipo": "Externo",
     "fecha": "2026-07-30",
@@ -168,7 +378,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.735,
+    "id": 1783377777039.6785,
     "nombre": "POSTGRADOS Y COMUNIDAD VIRTUAL_JORNADA DE BIENVENIDA 2026",
     "tipo": "Interno",
     "fecha": "2026-07-18",
@@ -182,7 +392,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.0244,
+    "id": 1783377777039.3992,
     "nombre": "POSTGRADOS Y COMUNIDAD VIRTUAL_JORNADA DE BIENVENIDA 2026",
     "tipo": "Interno",
     "fecha": "2026-07-18",
@@ -196,7 +406,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.2246,
+    "id": 1783377777039.527,
     "nombre": "POSTGRADOS Y COMUNIDAD VIRTUAL_JORNADA DE BIENVENIDA 2026",
     "tipo": "Interno",
     "fecha": "2026-07-18",
@@ -210,7 +420,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.3057,
+    "id": 1783377777039.8984,
     "nombre": "POSTGRADOS Y COMUNIDAD VIRTUAL_JORNADA DE BIENVENIDA 2026",
     "tipo": "Interno",
     "fecha": "2026-07-18",
@@ -224,7 +434,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.4197,
+    "id": 1783377777039.7131,
     "nombre": "TODAS LAS FACULTADES_JORNADAS DE BIENVENIDA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-17",
@@ -238,7 +448,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.4395,
+    "id": 1783377777039.9658,
     "nombre": "TODAS LAS FACULTADES_JORNADAS DE BIENVENIDA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-17",
@@ -252,7 +462,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.9624,
+    "id": 1783377777039.4578,
     "nombre": "FAFCE_JORNADAS DE BIENVENIDA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-17",
@@ -266,7 +476,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.22,
+    "id": 1783377777039.7017,
     "nombre": "FHCS_JORNADAS DE BIENVENIDA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-17",
@@ -280,7 +490,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.1753,
+    "id": 1783377777039.049,
     "nombre": "FIN_JORNADAS DE BIENVENIDA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-17",
@@ -294,7 +504,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.8628,
+    "id": 1783377777039.079,
     "nombre": "NETWORKING ALINEACIÓN ESTRATEGICA DOCENTES",
     "tipo": "Interno",
     "fecha": "2026-07-14",
@@ -308,7 +518,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.7864,
+    "id": 1783377777039.5588,
     "nombre": "FAFCE ALINEACIÓN ESTRATEGICA DOCENTES",
     "tipo": "Interno",
     "fecha": "2026-07-14",
@@ -322,7 +532,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.834,
+    "id": 1783377777039.344,
     "nombre": "Tu experiencia eanista comienza aquí \"Semana 0\"\\, Pregrado Nocturno\\, Posgrado Presencial",
     "tipo": "Interno",
     "fecha": "2026-07-18",
@@ -336,7 +546,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.8354,
+    "id": 1783377777039.5227,
     "nombre": "Tu experiencia eanista comienza aquí \"Semana 0\" Facultad de Humanidades y Ciencias Sociales / Jueves 16 y Viernes 17 de Julio",
     "tipo": "Interno",
     "fecha": "2026-07-16",
@@ -350,7 +560,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.2954,
+    "id": 1783377777039.373,
     "nombre": "Tu experiencia eanista comienza aquí \"Semana 0\" Facultad de Ingeniería / Miércoles 15 y Viernes 17 de Julio",
     "tipo": "Interno",
     "fecha": "2026-07-15",
@@ -364,7 +574,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.5786,
+    "id": 1783377777039.925,
     "nombre": "Tu experiencia eanista comienza aquí \"Semana 0\" Facultad de Administración\\, Finanzas y Ciencias Económicas / Martes 14 y Viernes 17 de Julio",
     "tipo": "Interno",
     "fecha": "2026-07-14",
@@ -378,7 +588,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.5493,
+    "id": 1783377777039.6992,
     "nombre": "GRABACION TELESET",
     "tipo": "Externo",
     "fecha": "2026-06-26",
@@ -392,7 +602,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.3623,
+    "id": 1783377777039.47,
     "nombre": "CONSTRUCTORA CAPITAL",
     "tipo": "Externo",
     "fecha": "2026-07-28",
@@ -406,7 +616,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.4321,
+    "id": 1783377777039.091,
     "nombre": "JORNADA DE BIENVENIDA REGIONAL",
     "tipo": "Interno",
     "fecha": "2026-06-26",
@@ -420,7 +630,63 @@
     "link": ""
   },
   {
-    "id": 1783352489855.603,
+    "id": 1783377777039.6135,
+    "nombre": "diplomados de formación docente en convenio con la Secretaría de Educación del Distrito (SED)",
+    "tipo": "Interno",
+    "fecha": "2026-06-06",
+    "horaInicio": "06:30",
+    "horaFin": "13:00",
+    "espacio": "Aula Múltiple",
+    "responsable": "LYDA MARCELA SALAZAR (EXTENSIÓN Y CONSULTORIA)",
+    "caso": "81597 - 30171403",
+    "objetivo": "Clase.",
+    "aforo": "85",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.627,
+    "nombre": "LANZAMIENTO MUNDIAL DE FUTBOL PANTALLA",
+    "tipo": "Interno",
+    "fecha": "2026-06-11",
+    "horaInicio": "11:00",
+    "horaFin": "18:00",
+    "espacio": "Auditorio Nativos",
+    "responsable": "ARMANDO BERDUGO (EXPERIENCIA COLABORADOR)",
+    "caso": "81453 - 30171402",
+    "objetivo": "Lanzamiento Mundial",
+    "aforo": "150",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.5427,
+    "nombre": "Townhall L'Oréal",
+    "tipo": "Externo",
+    "fecha": "2026-06-19",
+    "horaInicio": "06:00",
+    "horaFin": "14:00",
+    "espacio": "Auditorio Orígenes",
+    "responsable": "",
+    "caso": "",
+    "objetivo": "",
+    "aforo": "",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.5364,
+    "nombre": "CIERRE PROGRAMA DE MENTORES 2026-1",
+    "tipo": "Interno",
+    "fecha": "2026-06-17",
+    "horaInicio": "14:00",
+    "horaFin": "18:00",
+    "espacio": "Aula Múltiple",
+    "responsable": "MIGUEL ANGEL PEREZ (SERVICIOS AL ESTUDIANTE)",
+    "caso": "81464 - 30171352",
+    "objetivo": "Cierre.",
+    "aforo": "40",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.9888,
     "nombre": "GRADOS REGIONALES POPAYAN - CAUCA",
     "tipo": "Interno",
     "fecha": "2026-07-31",
@@ -434,7 +700,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.1123,
+    "id": 1783377777039.6313,
     "nombre": "desayuno de lanzamiento del programa Tángara Investment Readiness de Impacta",
     "tipo": "Interno",
     "fecha": "2026-06-24",
@@ -448,7 +714,231 @@
     "link": ""
   },
   {
-    "id": 1783352489855.1555,
+    "id": 1783377777039.2239,
+    "nombre": "EVENTO EXTERNO : CLEFI CIERRE DE EMPRENDEDORES",
+    "tipo": "Externo",
+    "fecha": "2026-06-12",
+    "horaInicio": "13:30",
+    "horaFin": "18:00",
+    "espacio": "Magistral Fundadores",
+    "responsable": "",
+    "caso": "",
+    "objetivo": "",
+    "aforo": "",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.5232,
+    "nombre": "LANZAMIENTO CENTRO COLOMBO CHINO",
+    "tipo": "Interno",
+    "fecha": "2026-06-18",
+    "horaInicio": "16:00",
+    "horaFin": "19:00",
+    "espacio": "Aula Múltiple",
+    "responsable": "FELIPE ESPINOSA (FHCS)",
+    "caso": "30171648",
+    "objetivo": "Lanzamiento",
+    "aforo": "50",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.9846,
+    "nombre": "FERIA FINANCIERA",
+    "tipo": "Interno",
+    "fecha": "2026-06-05",
+    "horaInicio": "08:00",
+    "horaFin": "17:00",
+    "espacio": "PLAZOLETA - TERRAZA 6 PISO - LOBBY - PUENTE",
+    "responsable": "CATHERINE GOMEZ GARZON (VICERRECTORIA FINANCIERA)",
+    "caso": "81190",
+    "objetivo": "Feria Financiera",
+    "aforo": "N/A",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.3398,
+    "nombre": "ESPACIO RENOVACIÓN DE MATRICULA 2026-2",
+    "tipo": "Interno",
+    "fecha": "2026-06-03",
+    "horaInicio": "07:00",
+    "horaFin": "19:00",
+    "espacio": "Auditorio Nativos",
+    "responsable": "EDISON ANDRES VARGAS (SERVICIO - EAN A TU LADO)",
+    "caso": "81373 - 30171307",
+    "objetivo": "Solo espacio de Matriculas",
+    "aforo": "N/A",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.2185,
+    "nombre": "ESPACIO RENOVACIÓN DE MATRICULA 2026-2",
+    "tipo": "Interno",
+    "fecha": "2026-06-04",
+    "horaInicio": "07:00",
+    "horaFin": "19:00",
+    "espacio": "Auditorio Nativos",
+    "responsable": "EDISON ANDRES VARGAS (SERVICIO - EAN A TU LADO)",
+    "caso": "81373 - 30171307",
+    "objetivo": "Solo espacio de Matriculas",
+    "aforo": "N/A",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.3027,
+    "nombre": "ESPACIO RENOVACIÓN DE MATRICULA 2026-2",
+    "tipo": "Interno",
+    "fecha": "2026-06-05",
+    "horaInicio": "07:00",
+    "horaFin": "19:00",
+    "espacio": "Auditorio Nativos",
+    "responsable": "EDISON ANDRES VARGAS (SERVICIO - EAN A TU LADO)",
+    "caso": "81373 - 30171307",
+    "objetivo": "Solo espacio de Matriculas",
+    "aforo": "N/A",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.404,
+    "nombre": "FERIA FINANCIERA",
+    "tipo": "Interno",
+    "fecha": "2026-06-01",
+    "horaInicio": "08:00",
+    "horaFin": "18:00",
+    "espacio": "LOBBY Y PUENTE",
+    "responsable": "CATHERINE GOMEZ GARZON (VICERRECTORIA FINANCIERA)",
+    "caso": "81190",
+    "objetivo": "Feria Financiera",
+    "aforo": "N/A",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.0637,
+    "nombre": "FERIA FINANCIERA",
+    "tipo": "Interno",
+    "fecha": "2026-06-02",
+    "horaInicio": "08:00",
+    "horaFin": "18:00",
+    "espacio": "LOBBY Y PUENTE",
+    "responsable": "CATHERINE GOMEZ GARZON (VICERRECTORIA FINANCIERA)",
+    "caso": "81190",
+    "objetivo": "Feria Financiera",
+    "aforo": "N/A",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.9644,
+    "nombre": "FERIA FINANCIERA",
+    "tipo": "Interno",
+    "fecha": "2026-06-03",
+    "horaInicio": "08:00",
+    "horaFin": "18:00",
+    "espacio": "LOBBY Y PUENTE",
+    "responsable": "CATHERINE GOMEZ GARZON (VICERRECTORIA FINANCIERA)",
+    "caso": "81190",
+    "objetivo": "Feria Financiera",
+    "aforo": "N/A",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.834,
+    "nombre": "FERIA FINANCIERA",
+    "tipo": "Interno",
+    "fecha": "2026-06-04",
+    "horaInicio": "08:00",
+    "horaFin": "18:00",
+    "espacio": "LOBBY Y PUENTE",
+    "responsable": "CATHERINE GOMEZ GARZON (VICERRECTORIA FINANCIERA)",
+    "caso": "81190",
+    "objetivo": "Feria Financiera",
+    "aforo": "N/A",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.1233,
+    "nombre": "Proyecto Bootcamp_ Inversión estratégica y nuevos horizontes - Cavipetrol dirigido a directivos de Cavipetrol",
+    "tipo": "Interno",
+    "fecha": "2026-06-10",
+    "horaInicio": "12:00",
+    "horaFin": "14:00",
+    "espacio": "Aula Múltiple",
+    "responsable": "ALEJANDRA DUARTE MORENO (EXTENSIÓN Y CONSULTORIA)",
+    "caso": "81368 - 30171255",
+    "objetivo": "Curso de Extensión y consultoria",
+    "aforo": "30",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.6797,
+    "nombre": "Proyecto Bootcamp_ Inversión estratégica y nuevos horizontes - Cavipetrol dirigido a directivos de Cavipetrol",
+    "tipo": "Interno",
+    "fecha": "2026-06-11",
+    "horaInicio": "12:00",
+    "horaFin": "14:00",
+    "espacio": "Aula Múltiple",
+    "responsable": "ALEJANDRA DUARTE MORENO (EXTENSIÓN Y CONSULTORIA)",
+    "caso": "81368 - 30171255",
+    "objetivo": "Curso de Extensión y consultoria",
+    "aforo": "30",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.9673,
+    "nombre": "REUNIÓN LEXIA 360 CON DIRECTORES",
+    "tipo": "Interno",
+    "fecha": "2026-06-16",
+    "horaInicio": "09:00",
+    "horaFin": "11:00",
+    "espacio": "Magistral Fundadores",
+    "responsable": "FREDY REYES NEGRETE (FHCS)",
+    "caso": "81157 - 30171254",
+    "objetivo": "Reunión.",
+    "aforo": "40",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.3247,
+    "nombre": "CIERRE RETO OPAIN",
+    "tipo": "Interno",
+    "fecha": "2026-06-01",
+    "horaInicio": "15:00",
+    "horaFin": "17:00",
+    "espacio": "Magistral Fundadores",
+    "responsable": "MARIA CLEMENCIA SILVA (FHCS)",
+    "caso": "81419 - 30171308",
+    "objetivo": "Clase",
+    "aforo": "60",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.9043,
+    "nombre": "Lanzamiento del Centro Colombo-Chino de Negocios de la Universidad Ean",
+    "tipo": "Interno",
+    "fecha": "2026-06-18",
+    "horaInicio": "16:00",
+    "horaFin": "19:00",
+    "espacio": "",
+    "responsable": "",
+    "caso": "",
+    "objetivo": "",
+    "aforo": "",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.2432,
+    "nombre": "ALIANZA EAN - LENOVO Y GOOGLE",
+    "tipo": "Interno",
+    "fecha": "2026-06-01",
+    "horaInicio": "08:00",
+    "horaFin": "12:00",
+    "espacio": "Auditorio Orígenes",
+    "responsable": "MONICA RAMOS (DEYPC) - NELSON BELTRAN (VICE IA)",
+    "caso": "30171370",
+    "objetivo": "Pendiente",
+    "aforo": "Por confirmar",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.626,
     "nombre": "DESAYUNO DIRECTIVOS DECAMERON",
     "tipo": "Interno",
     "fecha": "2026-06-24",
@@ -462,7 +952,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.4585,
+    "id": 1783377777039.3564,
     "nombre": "CUPÓN_SECRETARÍA DISTRITAL DE DESAROLLO ECONOMICO",
     "tipo": "Interno",
     "fecha": "2026-07-01",
@@ -476,7 +966,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.2173,
+    "id": 1783377777039.0596,
     "nombre": "GRADOS PRIVADOS",
     "tipo": "Interno",
     "fecha": "2026-07-31",
@@ -490,7 +980,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.0256,
+    "id": 1783377777039.6536,
     "nombre": "EVENTO EXTERNO GRIKY",
     "tipo": "Externo",
     "fecha": "2026-06-25",
@@ -504,7 +994,21 @@
     "link": ""
   },
   {
-    "id": 1783352489855.3193,
+    "id": 1783377777039.1885,
+    "nombre": "PRUEBA LOREAL",
+    "tipo": "Interno",
+    "fecha": "2026-06-18",
+    "horaInicio": "14:00",
+    "horaFin": "18:00",
+    "espacio": "Auditorio Orígenes",
+    "responsable": "",
+    "caso": "",
+    "objetivo": "",
+    "aforo": "",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.4495,
     "nombre": "ENCUENTRO DE PENSIONADOS EANISTAS",
     "tipo": "Interno",
     "fecha": "2026-06-26",
@@ -518,7 +1022,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.3735,
+    "id": 1783377777039.039,
     "nombre": "LIDERAZGO QUE TRASCIENDE - ESSENTIA",
     "tipo": "Interno",
     "fecha": "2026-06-23",
@@ -532,7 +1036,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.0635,
+    "id": 1783377777039.806,
     "nombre": "RETRANSMISIÓN PARTIDOS DEL MUNDIAL DE FUTBOL",
     "tipo": "Interno",
     "fecha": "2026-06-24",
@@ -546,7 +1050,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.215,
+    "id": 1783377777039.05,
     "nombre": "RETRANSMISIÓN PARTIDOS DEL MUNDIAL DE FUTBOL",
     "tipo": "Interno",
     "fecha": "2026-06-23",
@@ -560,7 +1064,35 @@
     "link": ""
   },
   {
-    "id": 1783352489855.6877,
+    "id": 1783377777039.5815,
+    "nombre": "RETRANSMISIÓN PARTIDOS DEL MUNDIAL DE FUTBOL",
+    "tipo": "Interno",
+    "fecha": "2026-06-19",
+    "horaInicio": "14:00",
+    "horaFin": "17:00",
+    "espacio": "Aula Múltiple",
+    "responsable": "JESUS TORREGROSA (BIENESTAR UNIVERSITARIO)",
+    "caso": "82207 - 30171591",
+    "objetivo": "Espacio Socialización.",
+    "aforo": "60",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.546,
+    "nombre": "RETRANSMISIÓN PARTIDOS DEL MUNDIAL DE FUTBOL",
+    "tipo": "Interno",
+    "fecha": "2026-06-17",
+    "horaInicio": "12:00",
+    "horaFin": "18:00",
+    "espacio": "Magistral Fundadores",
+    "responsable": "JESUS TORREGROSA (BIENESTAR UNIVERSITARIO)",
+    "caso": "82207 - 30171591",
+    "objetivo": "Espacio Socialización.",
+    "aforo": "60",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.8694,
     "nombre": "Eanízate: comienza tu viaje universitario",
     "tipo": "Interno",
     "fecha": "2026-07-30",
@@ -574,7 +1106,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.1624,
+    "id": 1783377777039.5513,
     "nombre": "Eanízate: comienza tu viaje universitario",
     "tipo": "Interno",
     "fecha": "2026-07-29",
@@ -588,7 +1120,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.0618,
+    "id": 1783377777039.6074,
     "nombre": "CUPÓN_SECRETARÍA DISTRITAL DE DESAROLLO ECONOMICO",
     "tipo": "Interno",
     "fecha": "2026-07-01",
@@ -602,7 +1134,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.7354,
+    "id": 1783377777039.4226,
     "nombre": "El nuevo mapa demográfico: decisiones estratégicas para las organizaciones del futuro\"",
     "tipo": "Interno",
     "fecha": "2026-07-23",
@@ -616,7 +1148,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.6885,
+    "id": 1783377777039.119,
     "nombre": "Lanzamiento Semilleros 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-30",
@@ -630,7 +1162,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.91,
+    "id": 1783377777039.9746,
     "nombre": "SOPORTE DE INICIO DE ACTIVIDADES ACADÉMICAS DE PA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-21",
@@ -644,7 +1176,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.6619,
+    "id": 1783377777039.9553,
     "nombre": "SOPORTE DE INICIO DE ACTIVIDADES ACADÉMICAS DE PA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-22",
@@ -658,7 +1190,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.8118,
+    "id": 1783377777039.204,
     "nombre": "SOPORTE DE INICIO DE ACTIVIDADES ACADÉMICAS DE PA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-23",
@@ -672,7 +1204,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.0103,
+    "id": 1783377777039.8809,
     "nombre": "SOPORTE DE INICIO DE ACTIVIDADES ACADÉMICAS DE PA 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-24",
@@ -686,7 +1218,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.806,
+    "id": 1783377777039.488,
     "nombre": "\"Semana 0\"\\, Pregrado y Posgrado Virtual",
     "tipo": "Interno",
     "fecha": "2026-07-18",
@@ -700,7 +1232,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.8533,
+    "id": 1783377777039.131,
     "nombre": "COMUNIDAD IMOVE EAN_GRADUADOS",
     "tipo": "Interno",
     "fecha": "2026-07-09",
@@ -714,7 +1246,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.3418,
+    "id": 1783377777039.7688,
     "nombre": "RECTORIA Y EMBAJADA DE NUEVA ZELANDA",
     "tipo": "Interno",
     "fecha": "2026-06-30",
@@ -728,7 +1260,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.5432,
+    "id": 1783377777039.13,
     "nombre": "DIPLOMADO FORMACIÓN DOCENTES SED",
     "tipo": "Interno",
     "fecha": "2026-07-25",
@@ -742,7 +1274,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.4343,
+    "id": 1783377777039.8538,
     "nombre": "Ceremonia de Grado Colectivo",
     "tipo": "Interno",
     "fecha": "2026-07-31",
@@ -756,7 +1288,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.454,
+    "id": 1783377777039.2866,
     "nombre": "Acto de Grado Privado",
     "tipo": "Interno",
     "fecha": "2026-07-31",
@@ -770,7 +1302,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.7812,
+    "id": 1783377777039.1143,
     "nombre": "Acto de Grado Privado",
     "tipo": "Interno",
     "fecha": "2026-07-31",
@@ -784,7 +1316,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.9155,
+    "id": 1783377777039.7278,
     "nombre": "Programa Articulación Media 2026_Calasanz",
     "tipo": "Interno",
     "fecha": "2026-07-28",
@@ -798,7 +1330,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.352,
+    "id": 1783377777039.7905,
     "nombre": "LIDERAZGO QUE TRASCIENDE - ESSENTIA",
     "tipo": "Interno",
     "fecha": "2026-06-23",
@@ -812,7 +1344,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.0984,
+    "id": 1783377777039.1626,
     "nombre": "REUNIÓN PROFESORES FHCS",
     "tipo": "Interno",
     "fecha": "2026-07-03",
@@ -826,7 +1358,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.5813,
+    "id": 1783377777039.1255,
     "nombre": "INTERNO(REUNIÓN): REUNIÓN PROFESORES FHCS",
     "tipo": "Interno",
     "fecha": "2026-07-03",
@@ -840,7 +1372,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.501,
+    "id": 1783377777039.1418,
     "nombre": "ALL HANDS GERENCIA DE PROYECCIÓN Y CRECIMIENTO",
     "tipo": "Interno",
     "fecha": "2026-07-31",
@@ -854,7 +1386,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.2825,
+    "id": 1783377777039.6824,
     "nombre": "INTERNO (AAA - ESPACIO ALMUERZO): CONGRESO DISTRITAL DE DIVERSIDAD\\, EQUIDAD E INCLUSIÓN",
     "tipo": "Interno",
     "fecha": "2026-07-29",
@@ -868,7 +1400,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.6704,
+    "id": 1783377777039.6816,
     "nombre": "MODELO EDUCATIVO VICERRECTORIA",
     "tipo": "Interno",
     "fecha": "2026-07-10",
@@ -882,7 +1414,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.3374,
+    "id": 1783377777039.8452,
     "nombre": "JORNADA DE BIENVENIDA REGIONAL_CORPADEIN",
     "tipo": "Interno",
     "fecha": "2026-07-10",
@@ -896,7 +1428,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.5908,
+    "id": 1783377777039.0732,
     "nombre": "ALINEACIÓN INSTITUCIONAL PROFESORES 2026-2",
     "tipo": "Interno",
     "fecha": "2026-07-14",
@@ -910,7 +1442,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.7634,
+    "id": 1783377777039.1746,
     "nombre": "WOWEN",
     "tipo": "Externo",
     "fecha": "2026-07-23",
@@ -924,7 +1456,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.259,
+    "id": 1783377777039.7847,
     "nombre": "OBRA DE TEATRO WOMEN",
     "tipo": "Externo",
     "fecha": "2026-07-23",
@@ -938,7 +1470,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.535,
+    "id": 1783377777039.8076,
     "nombre": "CIERRE DEL DIPLOMADO DE IA SALUD",
     "tipo": "Interno",
     "fecha": "2026-07-09",
@@ -952,7 +1484,7 @@
     "link": ""
   },
   {
-    "id": 1783352489855.1372,
+    "id": 1783377777039.6206,
     "nombre": "PREMIACIÓN TORNEO COLABORADORES 2026",
     "tipo": "Interno",
     "fecha": "2026-07-09",
@@ -963,6 +1495,48 @@
     "caso": "83035 - 30171739",
     "objetivo": "Premiación.",
     "aforo": "60",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.77,
+    "nombre": "Feria de Cacaoteros e Indígenas: Feria de Conocimientos y Saberes: Cacao más allá del chocolate.",
+    "tipo": "Externo",
+    "fecha": "2026-07-08",
+    "horaInicio": "15:00",
+    "horaFin": "18:00",
+    "espacio": "Auditorio Nativos",
+    "responsable": "",
+    "caso": "726800",
+    "objetivo": "Externo Descripción del evento: Este espacio tiene como propósito generar un ejercicio de orientación técnica y transferencia de conocimiento en el que los productores de cacao de los territorios indígenas participantes puedan ampliar su visión frente a las múltiples oportunidades de transformación, diversificación y agregación de valor que actualmente ofrece la cadena del cacao.",
+    "aforo": "",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.0728,
+    "nombre": "Feria de Cacaoteros e Indígenas: Feria de Conocimientos y Saberes: Cacao más allá del chocolate.",
+    "tipo": "Externo",
+    "fecha": "2026-07-09",
+    "horaInicio": "07:00",
+    "horaFin": "17:00",
+    "espacio": "Auditorio Nativos",
+    "responsable": "",
+    "caso": "726800",
+    "objetivo": "Externo Descripción del evento: Este espacio tiene como propósito generar un ejercicio de orientación técnica y transferencia de conocimiento en el que los productores de cacao de los territorios indígenas participantes puedan ampliar su visión frente a las múltiples oportunidades de transformación, diversificación y agregación de valor que actualmente ofrece la cadena del cacao.",
+    "aforo": "",
+    "link": ""
+  },
+  {
+    "id": 1783377777039.0386,
+    "nombre": "Prueba",
+    "tipo": "Interno",
+    "fecha": "2026-07-06",
+    "horaInicio": "12:30",
+    "horaFin": "13:30",
+    "espacio": "",
+    "responsable": "",
+    "caso": "",
+    "objetivo": "",
+    "aforo": "",
     "link": ""
   }
 ]
