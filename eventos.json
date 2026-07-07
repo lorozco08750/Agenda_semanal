@@ -56,20 +56,6 @@
     "link": ""
   },
   {
-    "id": 1783377777039.6987,
-    "nombre": "MONTAJE EVENTO EXTERNO: COLOMBIA EXCELENTE",
-    "tipo": "Externo",
-    "fecha": "2026-07-14",
-    "horaInicio": "17:00",
-    "horaFin": "22:30",
-    "espacio": "Auditorio Fundadores",
-    "responsable": "",
-    "caso": "",
-    "objetivo": "",
-    "aforo": "",
-    "link": ""
-  },
-  {
     "id": 1783377777039.161,
     "nombre": "COLOMBIA EXCELENTE",
     "tipo": "Externo",
@@ -318,7 +304,7 @@
     "responsable": "",
     "caso": "",
     "objetivo": "",
-    "aforo": "",
+    "aforo": "20",
     "link": ""
   },
   {
@@ -367,9 +353,9 @@
     "id": 1783377777039.8406,
     "nombre": "EVENTO BOLETERÍA: MEDIA VIDA-CAMILO SHOW SAS \"LA VIDA ES HOY\"",
     "tipo": "Externo",
-    "fecha": "2026-07-30",
-    "horaInicio": "14:00",
-    "horaFin": "21:30",
+    "fecha": "2026-08-27",
+    "horaInicio": "20:00",
+    "horaFin": "23:00",
     "espacio": "Auditorio Orígenes",
     "responsable": "",
     "caso": "",
@@ -715,8 +701,8 @@
   },
   {
     "id": 1783377777039.2239,
-    "nombre": "EVENTO EXTERNO : CLEFI CIERRE DE EMPRENDEDORES",
-    "tipo": "Externo",
+    "nombre": "CLEFI CIERRE DE EMPRENDEDORES",
+    "tipo": "Interno",
     "fecha": "2026-06-12",
     "horaInicio": "13:30",
     "horaFin": "18:00",
@@ -990,7 +976,7 @@
     "responsable": "",
     "caso": "",
     "objetivo": "",
-    "aforo": "",
+    "aforo": "25",
     "link": ""
   },
   {
@@ -1443,7 +1429,7 @@
   },
   {
     "id": 1783377777039.1746,
-    "nombre": "WOWEN",
+    "nombre": "OBRA DE TEATRO WOWEN",
     "tipo": "Externo",
     "fecha": "2026-07-23",
     "horaInicio": "14:00",
@@ -1495,20 +1481,6 @@
     "caso": "83035 - 30171739",
     "objetivo": "Premiación.",
     "aforo": "60",
-    "link": ""
-  },
-  {
-    "id": 1783377777039.77,
-    "nombre": "Feria de Cacaoteros e Indígenas: Feria de Conocimientos y Saberes: Cacao más allá del chocolate.",
-    "tipo": "Externo",
-    "fecha": "2026-07-08",
-    "horaInicio": "15:00",
-    "horaFin": "18:00",
-    "espacio": "Auditorio Nativos",
-    "responsable": "",
-    "caso": "726800",
-    "objetivo": "Externo Descripción del evento: Este espacio tiene como propósito generar un ejercicio de orientación técnica y transferencia de conocimiento en el que los productores de cacao de los territorios indígenas participantes puedan ampliar su visión frente a las múltiples oportunidades de transformación, diversificación y agregación de valor que actualmente ofrece la cadena del cacao.",
-    "aforo": "",
     "link": ""
   },
   {
