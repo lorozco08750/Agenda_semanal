@@ -346,7 +346,7 @@
     "responsable": "",
     "caso": "",
     "objetivo": "",
-    "aforo": "",
+    "aforo": "40",
     "link": ""
   },
   {
@@ -654,7 +654,7 @@
     "responsable": "",
     "caso": "",
     "objetivo": "",
-    "aforo": "",
+    "aforo": "400",
     "link": ""
   },
   {
@@ -977,20 +977,6 @@
     "caso": "",
     "objetivo": "",
     "aforo": "25",
-    "link": ""
-  },
-  {
-    "id": 1783377777039.1885,
-    "nombre": "PRUEBA LOREAL",
-    "tipo": "Interno",
-    "fecha": "2026-06-18",
-    "horaInicio": "14:00",
-    "horaFin": "18:00",
-    "espacio": "Auditorio Orígenes",
-    "responsable": "",
-    "caso": "",
-    "objetivo": "",
-    "aforo": "",
     "link": ""
   },
   {
