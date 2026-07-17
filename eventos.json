@@ -1,6 +1,6 @@
 [
   {
-    "id": 1784318536951.7202,
+    "id": 1784319918569.7512,
     "nombre": "BOOTCAMP IA",
     "tipo": "Interno",
     "fecha": "2026-07-21",
@@ -14,8 +14,8 @@
     "link": ""
   },
   {
-    "id": 1784318536951.8682,
-    "nombre": "(1) ENCUENTRO PROGRAMA IMPACTA / (2) FORO RETOS DEL SECTOR AGROPECUARIO",
+    "id": 1784319918569.324,
+    "nombre": "(1) ENCUENTRO PROGRAMA IMPACTA / (2) FORO_RETOS DEL SECTOR AGROPECUARIO",
     "tipo": "Interno",
     "fecha": "2026-07-21",
     "horaInicio": "18:00",
@@ -24,12 +24,12 @@
     "responsable": "",
     "caso": "",
     "objetivo": "",
-    "aforo": "",
+    "aforo": "0",
     "link": ""
   },
   {
-    "id": 1784318536951.2466,
-    "nombre": "WOMEN LINK WORLD",
+    "id": 1784319918569.0735,
+    "nombre": "OBRA DE TEATRO WOMEN LINK WORDL",
     "tipo": "Externo",
     "fecha": "2026-07-23",
     "horaInicio": "10:00",
@@ -42,8 +42,8 @@
     "link": ""
   },
   {
-    "id": 1784318536951.3472,
-    "nombre": "El nuevo mapa demográfico: decisiones estratégicas para las organizaciones del futuro",
+    "id": 1784319918569.8752,
+    "nombre": "EL NUEVO MAPA DEMOGRÁFICO: DECISIONES ESTRATÉGICAS PARA LAS ORGANIZACIONES DEL FUTURO",
     "tipo": "Interno",
     "fecha": "2026-07-23",
     "horaInicio": "18:00",
@@ -51,22 +51,50 @@
     "espacio": "Magistral Fundadores",
     "responsable": "",
     "caso": "",
-    "objetivo": "Conferencia presencial e Internacional - Decana Lupita Páez F., de la Universidad Latina de Costa Rica.",
-    "aforo": "60",
+    "objetivo": "",
+    "aforo": "0",
     "link": ""
   },
   {
-    "id": 1784318536951.144,
+    "id": 1784319918569.9705,
     "nombre": "DIPLOMADO FORMACIÓN DOCENTES SED",
     "tipo": "Interno",
     "fecha": "2026-07-25",
     "horaInicio": "08:00",
     "horaFin": "12:00",
-    "espacio": "Aula Múltiple 1&2",
+    "espacio": "Aula Múltiple",
     "responsable": "",
     "caso": "",
-    "objetivo": "Diplomado docentes.",
+    "objetivo": "",
     "aforo": "35",
+    "link": ""
+  },
+  {
+    "id": 1784319918569.656,
+    "nombre": "DIPLOMADO FORMACIÓN DOCENTES SED",
+    "tipo": "Interno",
+    "fecha": "2026-07-25",
+    "horaInicio": "08:00",
+    "horaFin": "12:00",
+    "espacio": "Lobby Fundadores",
+    "responsable": "",
+    "caso": "",
+    "objetivo": "",
+    "aforo": "10",
+    "link": ""
+  },
+  {
+    "id": 1784319918569.3174,
+    "nombre": "DIPLOMADO FORMACIÓN DOCENTES SED",
+    "tipo": "Interno",
+    "fecha": "2026-07-25",
+    "horaInicio": "08:00",
+    "horaFin": "12:00",
+    "espacio": "Puente Piso 2",
+    "responsable": "",
+    "caso": "",
+    "objetivo": "",
+    "aforo": "15",
     "link": ""
   }
 ]
