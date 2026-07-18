@@ -1,7 +1,21 @@
 [
   {
-    "id": 1784320892429.9702,
-    "nombre": "INTERNO (AA): BOOTCAMP IA",
+    "id": 1784377439363.2349,
+    "nombre": "Sesión de GRABACION TIS PRODUCTIONS",
+    "tipo": "Externo",
+    "fecha": "2026-07-20",
+    "horaInicio": "07:00",
+    "horaFin": "21:00",
+    "espacio": "Auditorio Orígenes",
+    "responsable": "JESICA FERNANDA PELAEZ RIVERA",
+    "caso": "",
+    "objetivo": "",
+    "aforo": "0",
+    "link": ""
+  },
+  {
+    "id": 1784377439363.337,
+    "nombre": "Sesión de INTERNO (AA): BOOTCAMP IA",
     "tipo": "Interno",
     "fecha": "2026-07-21",
     "horaInicio": "17:00",
@@ -14,8 +28,8 @@
     "link": ""
   },
   {
-    "id": 1784320892429.3542,
-    "nombre": "INTERNO (AA): (1) ENCUENTRO PROGRAMA IMPACTA / (2) FORO_RETOS DEL SECTOR AGROPECUARIO",
+    "id": 1784377439363.391,
+    "nombre": "Sesión de INTERNO (AA): (1) ENCUENTRO PROGRAMA IMPACTA / (2) FORO_RETOS DEL SECTOR AGROPECUARIO",
     "tipo": "Interno",
     "fecha": "2026-07-21",
     "horaInicio": "18:00",
@@ -28,8 +42,8 @@
     "link": ""
   },
   {
-    "id": 1784320892429.2415,
-    "nombre": "OBRA DE TEATRO WOMEN LINK WORDL",
+    "id": 1784377439363.5178,
+    "nombre": "Sesión de OBRA DE TEATRO WOMEN LINK WORDL",
     "tipo": "Externo",
     "fecha": "2026-07-23",
     "horaInicio": "10:00",
@@ -42,8 +56,8 @@
     "link": ""
   },
   {
-    "id": 1784320892429.545,
-    "nombre": "INTERNO (CLASE): EL NUEVO MAPA DEMOGRÁFICO: DECISIONES ESTRATÉGICAS PARA LAS ORGANIZACIONES DEL FUTURO",
+    "id": 1784377439363.9927,
+    "nombre": "Sesión de INTERNO (CLASE): EL NUEVO MAPA DEMOGRÁFICO: DECISIONES ESTRATÉGICAS PARA LAS ORGANIZACIONES DEL FUTURO",
     "tipo": "Interno",
     "fecha": "2026-07-23",
     "horaInicio": "18:00",
@@ -56,8 +70,8 @@
     "link": ""
   },
   {
-    "id": 1784320892429.4956,
-    "nombre": "INTERNO (CLASE): DIPLOMADO FORMACIÓN DOCENTES SED",
+    "id": 1784377439363.026,
+    "nombre": "Sesión de INTERNO (CLASE): DIPLOMADO FORMACIÓN DOCENTES SED",
     "tipo": "Interno",
     "fecha": "2026-07-25",
     "horaInicio": "08:00",
@@ -70,8 +84,8 @@
     "link": ""
   },
   {
-    "id": 1784320892429.333,
-    "nombre": "INTERNO (CLASE): DIPLOMADO FORMACIÓN DOCENTES SED",
+    "id": 1784377439363.3545,
+    "nombre": "Sesión de INTERNO (CLASE): DIPLOMADO FORMACIÓN DOCENTES SED",
     "tipo": "Interno",
     "fecha": "2026-07-25",
     "horaInicio": "08:00",
@@ -84,8 +98,8 @@
     "link": ""
   },
   {
-    "id": 1784320892429.3794,
-    "nombre": "INTERNO (CLASE): DIPLOMADO FORMACIÓN DOCENTES SED",
+    "id": 1784377439363.7332,
+    "nombre": "Sesión de INTERNO (CLASE): DIPLOMADO FORMACIÓN DOCENTES SED",
     "tipo": "Interno",
     "fecha": "2026-07-25",
     "horaInicio": "08:00",
