@@ -1,6 +1,6 @@
 [
   {
-    "id": 1786034169048.5403,
+    "id": 1786036239555.2463,
     "nombre": "LANZAMIENTO NUEVA COLECCIÓN TIENDA EAN",
     "tipo": "Interno",
     "fecha": "2026-08-10",
@@ -14,7 +14,7 @@
     "link": ""
   },
   {
-    "id": 1786034169048.5305,
+    "id": 1786036239555.3708,
     "nombre": "EL AGUA DEFINIRÁ EL FUTURO DEL PAÍS ¿CÓMO CONSTRUIREMOS ESE FUTURO?",
     "tipo": "Interno",
     "fecha": "2026-08-11",
@@ -28,7 +28,7 @@
     "link": ""
   },
   {
-    "id": 1786034169048.2852,
+    "id": 1786036239555.527,
     "nombre": "CELEBRACIÓN MES DE LA JUVENTUD",
     "tipo": "Interno",
     "fecha": "2026-08-11",
@@ -42,7 +42,7 @@
     "link": ""
   },
   {
-    "id": 1786034169048.2424,
+    "id": 1786036239555.856,
     "nombre": "SOCIALIZACIÓN MODELO EDUCATIVO A TODA LA UNIVERSIDAD EAN",
     "tipo": "Interno",
     "fecha": "2026-08-11",
@@ -56,7 +56,7 @@
     "link": ""
   },
   {
-    "id": 1786034169048.2988,
+    "id": 1786036239555.4578,
     "nombre": "Climate Investor Lunch by Fondo Impacta",
     "tipo": "Interno",
     "fecha": "2026-08-12",
@@ -70,7 +70,7 @@
     "link": ""
   },
   {
-    "id": 1786034169048.5073,
+    "id": 1786036239555.065,
     "nombre": "LANZAMIENTO PROGRAMA DE BIENESTAR PARA COLABORADORES",
     "tipo": "Interno",
     "fecha": "2026-08-12",
@@ -84,7 +84,7 @@
     "link": ""
   },
   {
-    "id": 1786034169048.71,
+    "id": 1786036239555.5955,
     "nombre": "SEMANA DE LA SALUD_ESPACIO TAMIZAJE",
     "tipo": "Interno",
     "fecha": "2026-08-13",
@@ -98,7 +98,7 @@
     "link": ""
   },
   {
-    "id": 1786034169048.9482,
+    "id": 1786036239555.457,
     "nombre": "El Estado de la IA 2026",
     "tipo": "Externo",
     "fecha": "2026-08-13",
@@ -108,7 +108,7 @@
     "responsable": "LEYDI REGINA GOMEZ MORENO",
     "caso": "754320",
     "objetivo": "El año marca un punto de inflexión donde la inteligencia artificial ha dejado de ser una simple promesa futurista para convertirse en una infraestructura económica y regulatoria crítica. La IA generativa ha dado paso a la IA agéntica, los modelos son más multimodales y la tecnología enfrenta desafíos sin precedentes en regulación y escasez de datos",
-    "aforo": "400",
+    "aforo": "",
     "link": ""
   }
 ]
