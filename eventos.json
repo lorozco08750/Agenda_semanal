@@ -1,33 +1,5 @@
 [
   {
-    "id": 1786361854276.4746,
-    "nombre": "EL AGUA DEFINIRÁ EL FUTURO DEL PAÍS ¿CÓMO CONSTRUIREMOS ESE FUTURO?",
-    "tipo": "Interno",
-    "fecha": "2026-08-11",
-    "horaInicio": "08:00",
-    "horaFin": "13:00",
-    "espacio": "Atrio + Lobby Edificio Legacy",
-    "responsable": "NARLLY JULIETH FARFAN VALBUENA",
-    "caso": "81435 - 30171468",
-    "objetivo": "Convenio firmado desde rectoria, para realizar en alianza con Coca Cola",
-    "aforo": "",
-    "link": ""
-  },
-  {
-    "id": 1786361854276.2703,
-    "nombre": "EL AGUA DEFINIRÁ EL FUTURO DEL PAÍS ¿CÓMO CONSTRUIREMOS ESE FUTURO?",
-    "tipo": "Interno",
-    "fecha": "2026-08-11",
-    "horaInicio": "08:00",
-    "horaFin": "13:00",
-    "espacio": "Auditorio Nativos",
-    "responsable": "NARLLY JULIETH FARFAN VALBUENA",
-    "caso": "81435 - 30171468",
-    "objetivo": "Convenio firmado desde rectoria, para realizar en alianza con Coca Cola",
-    "aforo": "",
-    "link": ""
-  },
-  {
     "id": 1786361854276.0737,
     "nombre": "CELEBRACIÓN MES DE LA JUVENTUD",
     "tipo": "Interno",
@@ -38,20 +10,6 @@
     "responsable": "NARLLY JULIETH FARFAN VALBUENA",
     "caso": "84871 - 30175910",
     "objetivo": "Relanzamiento de los servicios de BU, y celebración del mes de la juventud",
-    "aforo": "",
-    "link": ""
-  },
-  {
-    "id": 1786361854276.4053,
-    "nombre": "SOCIALIZACIÓN MODELO EDUCATIVO A TODA LA UNIVERSIDAD EAN",
-    "tipo": "Interno",
-    "fecha": "2026-08-11",
-    "horaInicio": "14:00",
-    "horaFin": "17:00",
-    "espacio": "Auditorio Orígenes",
-    "responsable": "NARLLY JULIETH FARFAN VALBUENA",
-    "caso": "85054 - 30175911",
-    "objetivo": "Socialización nuevo modelo educativo para toda la comunidad universitaria",
     "aforo": "",
     "link": ""
   },
