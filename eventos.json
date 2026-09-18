@@ -32,8 +32,8 @@
     "nombre": "CONGRESO COLOMBIANO CIENCIA DEL SUELO",
     "tipo": "Interno",
     "fecha": "2026-09-21",
-    "horaInicio": "07:00",
-    "horaFin": "18:00",
+    "horaInicio": "11:00",
+    "horaFin": "14:00",
     "espacio": "Auditorio Fundadores",
     "responsable": "LEYDI REGINA GOMEZ MORENO",
     "caso": "742702",
@@ -268,7 +268,7 @@
   {
     "id": 1789680837047.3828,
     "nombre": "Congreso Magno 4.0 Solventum 2026BLACKBIRD EXPERIENCE S.A.S",
-    "tipo": "Interno",
+    "tipo": "Externo",
     "fecha": "2026-09-26",
     "horaInicio": "07:00",
     "horaFin": "18:00",
@@ -282,7 +282,7 @@
   {
     "id": 1789680837047.527,
     "nombre": "Congreso Magno 4.0 Solventum 2026BLACKBIRD EXPERIENCE S.A.S",
-    "tipo": "Interno",
+    "tipo": "Externo",
     "fecha": "2026-09-26",
     "horaInicio": "07:00",
     "horaFin": "18:00",
@@ -296,7 +296,7 @@
   {
     "id": 1789680837047.9473,
     "nombre": "Congreso Magno 4.0 Solventum 2026BLACKBIRD EXPERIENCE S.A.S",
-    "tipo": "Interno",
+    "tipo": "Externo",
     "fecha": "2026-09-26",
     "horaInicio": "07:00",
     "horaFin": "18:00",
@@ -310,7 +310,7 @@
   {
     "id": 1789680837047.9072,
     "nombre": "Congreso Magno 4.0 Solventum 2026BLACKBIRD EXPERIENCE S.A.S",
-    "tipo": "Interno",
+    "tipo": "Externo",
     "fecha": "2026-09-26",
     "horaInicio": "07:00",
     "horaFin": "18:00",
@@ -324,7 +324,7 @@
   {
     "id": 1789680837047.0542,
     "nombre": "Congreso Magno 4.0 Solventum 2026BLACKBIRD EXPERIENCE S.A.S",
-    "tipo": "Interno",
+    "tipo": "Externo",
     "fecha": "2026-09-26",
     "horaInicio": "07:00",
     "horaFin": "18:00",
@@ -338,7 +338,7 @@
   {
     "id": 1789680837047.8748,
     "nombre": "Congreso Magno 4.0 Solventum 2026BLACKBIRD EXPERIENCE S.A.S",
-    "tipo": "Interno",
+    "tipo": "Externo",
     "fecha": "2026-09-26",
     "horaInicio": "07:00",
     "horaFin": "18:00",
@@ -352,7 +352,7 @@
   {
     "id": 1789680837047.1792,
     "nombre": "Congreso Magno 4.0 Solventum 2026BLACKBIRD EXPERIENCE S.A.S",
-    "tipo": "Interno",
+    "tipo": "Externo",
     "fecha": "2026-09-26",
     "horaInicio": "07:00",
     "horaFin": "18:00",
